@@ -48,7 +48,7 @@ use Bmatovu\AirtelMoney\Facades\AirtelMoney;
 
 $token = AirtelMoney::getToken();
 
-$user  = AirtelMoney::getUser();
+$user  = AirtelMoney::getUser($phoneNumber);
 ```
 
 **Collections**

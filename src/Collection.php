@@ -28,7 +28,7 @@ class Collection
                 'subscriber' => [
                     'country' => $this->config->get('airtel-money.country'),
                     'currency' => $this->config->get('airtel-money.currency'),
-                    'phoneNumber' => $phoneNumber,
+                    'msisdn' => $phoneNumber,
                 ],
                 'transaction' => [
                     'amount' => $amount,
