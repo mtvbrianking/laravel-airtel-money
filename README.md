@@ -1,60 +1,60 @@
-# This is my package laravel-airtel-money
+# Laravel Airtel Money
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/bmatovu/laravel-airtel-money.svg?style=flat-square)](https://packagist.org/packages/bmatovu/laravel-airtel-money)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/bmatovu/laravel-airtel-money/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/bmatovu/laravel-airtel-money/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/bmatovu/laravel-airtel-money/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/bmatovu/laravel-airtel-money/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/bmatovu/laravel-airtel-money.svg?style=flat-square)](https://packagist.org/packages/bmatovu/laravel-airtel-money)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+## Getting started
 
-## Installation
-
-You can install the package via composer:
+**Installation**
 
 ```bash
 composer require bmatovu/laravel-airtel-money
 ```
 
-You can publish and run the migrations with:
+**Publishables**
 
 ```bash
-php artisan vendor:publish --tag="laravel-airtel-money-migrations"
+php artisan vendor:publish --provider="Bmatovu\AirtelMoney\AirtelMoneyServiceProvider"
+```
+
+**Migrations**
+
+```bash
 php artisan migrate
 ```
 
-You can publish the config file with:
+## Getting Started
+
+**Set credentials**
 
 ```bash
-php artisan vendor:publish --tag="laravel-airtel-money-config"
+php artisan airtel-money:auth
 ```
 
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
+**Set disbursement PIN**
 
 ```bash
-php artisan vendor:publish --tag="laravel-airtel-money-views"
+php artisan airtel-money:pin
 ```
 
 ## Usage
+
+**Auth & KYC**
 
 ```php
 use Bmatovu\AirtelMoney\Facades\AirtelMoney;
 
 $token = AirtelMoney::getToken();
 
-$user = AirtelMoney::getUser($phoneNumber);
+$user  = AirtelMoney::getUser();
 ```
+
+**Collections**
 
 ```php
 use Bmatovu\AirtelMoney\Facades\Collection;
-
-$user        = Collection::getUser($phoneNumber);
 
 $transaction = Collection::receive($phoneNumber, $amount);
 
@@ -65,10 +65,10 @@ $transaction = Collection::getTransaction($transactionId);
 $balance     = Collection::getBalance();
 ```
 
+**Disbursement**
+
 ```php
 use Bmatovu\AirtelMoney\Facades\Disbursement;
-
-$user        = Disbursement::getUser($phoneNumber);
 
 $transaction = Disbursement::send($phoneNumber, $amount);
 
