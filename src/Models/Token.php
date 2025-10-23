@@ -1,0 +1,43 @@
+<?php
+
+namespace Bmatovu\AirtelMoney\Models;
+
+use Bmatovu\AirtelMoney\Database\Factories\TokenFactory;
+use Bmatovu\AirtelMoney\Traits\TokenUtils;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model as BaseModel;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class Token extends BaseModel // implements TokenInterface
+{
+    use HasFactory, TokenUtils;
+
+    /**
+     * @var string|null
+     */
+    protected $table = 'airtel_money_tokens';
+
+    /**
+     * @var array
+     */
+    protected $fillable = [
+        'access_token',
+        'refresh_token',
+        'token_type',
+        'expires_at',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'expires_at' => 'datetime',
+    ];
+
+    public static function newFactory(): Factory
+    {
+        return TokenFactory::new();
+    }
+}

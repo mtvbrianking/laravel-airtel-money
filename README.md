@@ -7,14 +7,6 @@
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-airtel-money.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-airtel-money)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
-
 ## Installation
 
 You can install the package via composer:
@@ -52,8 +44,35 @@ php artisan vendor:publish --tag="laravel-airtel-money-views"
 ## Usage
 
 ```php
-$airtelMoney = new Bmatovu\AirtelMoney();
-echo $airtelMoney->echoPhrase('Hello, Bmatovu!');
+use Bmatovu\AirtelMoney\Facades\AirtelMoney;
+
+$token = AirtelMoney::getToken();
+
+$user = AirtelMoney::getUser($phoneNumber);
+```
+
+```php
+use Bmatovu\AirtelMoney\Facades\Collection;
+
+$user        = Collection::getUser($phoneNumber);
+
+$transaction = Collection::receive($phoneNumber, $amount);
+
+$transaction = Collection::refund($transactionId);
+
+$transaction = Collection::getTransaction($transactionId);
+
+$balance     = Collection::getBalance();
+```
+
+```php
+use Bmatovu\AirtelMoney\Facades\Disbursement;
+
+$user        = Disbursement::getUser($phoneNumber);
+
+$transaction = Disbursement::send($phoneNumber, $amount);
+
+$transaction = Disbursement::getTransaction($transactionId);
 ```
 
 ## Testing

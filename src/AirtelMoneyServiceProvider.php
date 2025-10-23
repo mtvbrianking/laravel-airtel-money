@@ -2,24 +2,39 @@
 
 namespace Bmatovu\AirtelMoney;
 
-use Bmatovu\AirtelMoney\Commands\AirtelMoneyCommand;
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Bmatovu\AirtelMoney\Commands\AuthCommand;
+use Bmatovu\AirtelMoney\Commands\InitCommand;
+use Bmatovu\AirtelMoney\Commands\PinCommand;
+use Illuminate\Support\ServiceProvider;
 
-class AirtelMoneyServiceProvider extends PackageServiceProvider
+class AirtelMoneyServiceProvider extends ServiceProvider
 {
-    public function configurePackage(Package $package): void
+    public function boot()
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
-        $package
-            ->name('laravel-airtel-money')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel_airtel_money_table')
-            ->hasCommand(AirtelMoneyCommand::class);
+        if (!$this->app->runningInConsole()) {
+            return;
+        }
+
+        $this->publishes([
+            __DIR__ . '/../config/airtel-money.php' => base_path('config/airtel-money.php'),
+        ], 'config');
+
+        $this->publishes([
+            __DIR__ . '/../storage/airtel.pub' => storage_path('airtel.pub'),
+        ], 'public-key');
+
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
+        $this->commands([
+            InitCommand::class,
+            PinCommand::class,
+            AuthCommand::class,
+            // PurgeTokensCommand::class,
+        ]);
+    }
+
+    public function register()
+    {
+        $this->mergeConfigFrom(__DIR__ . '/../config/airtel-money.php', 'airtel-money');
     }
 }

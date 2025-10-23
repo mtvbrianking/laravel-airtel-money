@@ -1,6 +1,6 @@
 {
     "name": "bmatovu/laravel-airtel-money",
-    "description": "This is my package laravel-airtel-money",
+    "description": "Laravel Airtel Money API Integration",
     "keywords": [
         "bmatovu",
         "laravel",
@@ -65,7 +65,9 @@
                 "Bmatovu\\AirtelMoney\\AirtelMoneyServiceProvider"
             ],
             "aliases": {
-                "AirtelMoney": "Bmatovu\\AirtelMoney\\Facades\\AirtelMoney"
+                "AirtelMoney": "Bmatovu\\AirtelMoney\\Facades\\AirtelMoney",
+                "Collection": "Bmatovu\\AirtelMoney\\Facades\\Collection",
+                "Disbursement": "Bmatovu\\AirtelMoney\\Facades\\Disbursement"
             }
         }
     },
