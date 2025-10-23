@@ -42,16 +42,14 @@ class Collection
         return json_decode($response->getBody(), true);
     }
 
-    public function refund(string $transactionId): array
+    public function refund(string $airtelMoneyId): array
     {
         $refundUri = $this->config->get('airtel-money.collection.refund_uri');
-
-        $refundUri = str_replace(':transactionId', $transactionId, $refundUri);
 
         $response = Util::http()->request('POST', $refundUri, [
             'json' => [
                 'transaction' => [
-                    'airtel_money_id' => $transactionId,
+                    'airtel_money_id' => $airtelMoneyId,
                 ],
             ],
         ]);

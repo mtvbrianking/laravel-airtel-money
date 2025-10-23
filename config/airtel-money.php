@@ -23,7 +23,7 @@ return [
 
     'disbursement' => [
         'payment_uri' => env('AIRTEL_MONEY_DISBURSEMENT_PAYMENT_URI', '/standard/v1/disbursements/'),
-        'transaction_inquiry_uri' => env('AIRTEL_MONEY_DISBURSEMENT_TRANSACTION_INQUIRY_URI', '/standard/v2/disbursements/:transactionId'),
+        'transaction_inquiry_uri' => env('AIRTEL_MONEY_DISBURSEMENT_TRANSACTION_INQUIRY_URI', '/standard/v1/disbursements/:transactionId'),
     ],
 
     /*

@@ -58,7 +58,7 @@ use Bmatovu\AirtelMoney\Facades\Collection;
 
 $transaction = Collection::receive($phoneNumber, $amount);
 
-$transaction = Collection::refund($transactionId);
+$transaction = Collection::refund($airtelMoneyId);
 
 $transaction = Collection::getTransaction($transactionId);
 
