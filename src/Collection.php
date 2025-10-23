@@ -22,7 +22,7 @@ class Collection
 
         $paymentUri = $this->config->get('airtel-money.collection.payment_uri');
 
-        $response = Util::http()->request('GET', $paymentUri, [
+        $response = Util::http()->request('POST', $paymentUri, [
             'json' => [
                 'reference' => $reference ?? 'Collection',
                 'subscriber' => [
@@ -48,7 +48,7 @@ class Collection
 
         $refundUri = str_replace(':transactionId', $transactionId, $refundUri);
 
-        $response = Util::http()->request('GET', $refundUri, [
+        $response = Util::http()->request('POST', $refundUri, [
             'json' => [
                 'transaction' => [
                     'airtel_money_id' => $transactionId,

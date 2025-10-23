@@ -22,7 +22,7 @@ class Disbursement
 
         $paymentUri = $this->config->get('airtel-money.disbursement.payment_uri');
 
-        $response = Util::http()->request('GET', $paymentUri, [
+        $response = Util::http()->request('POST', $paymentUri, [
             'json' => [
                 'payee' => [
                     "msisdn" => $phoneNumber,
