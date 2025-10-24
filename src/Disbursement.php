@@ -25,7 +25,7 @@ class Disbursement
         $response = Util::http()->request('POST', $paymentUri, [
             'json' => [
                 'payee' => [
-                    "msisdn" => $phoneNumber,
+                    'msisdn' => $phoneNumber,
                 ],
                 'reference' => $reference ?? 'Disbursement',
                 'pin' => $this->config->get('airtel-money.encrypted_pin'),

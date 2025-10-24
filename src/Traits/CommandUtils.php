@@ -33,14 +33,14 @@ trait CommandUtils
 
         $envKey = strtoupper(preg_replace('/[^A-Za-z0-9]+/', '_', $configKey));
 
-        $pattern = '/^' . preg_quote($envKey, '/') . '=["\']?.*/m';
+        $pattern = '/^'.preg_quote($envKey, '/').'=["\']?.*/m';
 
         $contents = file_get_contents($envPath);
 
         if (preg_match($pattern, $contents)) {
             $contents = preg_replace($pattern, "{$envKey}=\"{$value}\"", $contents);
         } else {
-            $contents .= PHP_EOL . "{$envKey}=\"{$value}\"";
+            $contents .= PHP_EOL."{$envKey}=\"{$value}\"";
         }
 
         file_put_contents($envPath, $contents);

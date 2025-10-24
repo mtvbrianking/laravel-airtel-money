@@ -11,19 +11,19 @@ class AirtelMoneyServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        if (!$this->app->runningInConsole()) {
+        if (! $this->app->runningInConsole()) {
             return;
         }
 
         $this->publishes([
-            __DIR__ . '/../config/airtel-money.php' => base_path('config/airtel-money.php'),
+            __DIR__.'/../config/airtel-money.php' => base_path('config/airtel-money.php'),
         ], 'config');
 
         $this->publishes([
-            __DIR__ . '/../storage/airtel.pub' => storage_path('airtel.pub'),
+            __DIR__.'/../storage/airtel.pub' => storage_path('airtel.pub'),
         ], 'public-key');
 
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         $this->commands([
             InitCommand::class,
@@ -35,6 +35,6 @@ class AirtelMoneyServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/airtel-money.php', 'airtel-money');
+        $this->mergeConfigFrom(__DIR__.'/../config/airtel-money.php', 'airtel-money');
     }
 }

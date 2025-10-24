@@ -2,8 +2,8 @@
 
 namespace Bmatovu\AirtelMoney\Auth;
 
-use Bmatovu\AirtelMoney\Auth\Repositories\TokenRepositoryInterface;
 use Bmatovu\AirtelMoney\Auth\GrantTypes\GrantTypeInterface;
+use Bmatovu\AirtelMoney\Auth\Repositories\TokenRepositoryInterface;
 use Bmatovu\AirtelMoney\Support\Util;
 use GuzzleHttp\Promise\RejectedPromise;
 use Illuminate\Database\Eloquent\Model;
@@ -49,7 +49,7 @@ class OAuth2Middleware
     public function __invoke(callable $handler): \Closure
     {
         return function (RequestInterface $request, array $options) use ($handler) {
-            if (!$request->hasHeader('Authorization')) {
+            if (! $request->hasHeader('Authorization')) {
                 $request = $this->signRequest($request, $this->getToken());
             }
 
@@ -99,7 +99,7 @@ class OAuth2Middleware
 
     protected function signRequest(RequestInterface $request, Model $token): RequestInterface
     {
-        $authorization = $token->token_type . ' ' . $token->access_token;
+        $authorization = $token->token_type.' '.$token->access_token;
 
         return $request->withHeader('Authorization', $authorization);
     }

@@ -8,7 +8,7 @@ use Illuminate\Console\ConfirmableTrait;
 
 class InitCommand extends Command
 {
-    use ConfirmableTrait, CommandUtils;
+    use CommandUtils, ConfirmableTrait;
 
     protected $signature = "airtel-money:init
                             {--no-write : Don't write credentials to .env file.}

@@ -6,14 +6,13 @@ use Bmatovu\AirtelMoney\Support\Util;
 use Bmatovu\AirtelMoney\Traits\CommandUtils;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
 
 class AuthCommand extends Command
 {
-    use ConfirmableTrait, CommandUtils;
+    use CommandUtils, ConfirmableTrait;
 
     protected $signature = "airtel-money:auth
                             {--no-write : Don't write credentials to .env file.}
@@ -33,7 +32,7 @@ class AuthCommand extends Command
 
         $token = $this->auth($clientId, $clientSecret);
 
-        echo "\n" . json_encode($token) . PHP_EOL;
+        echo "\n".json_encode($token).PHP_EOL;
 
         $phoneNumber = $this->ask('Enter Phone Number');
 
@@ -41,7 +40,7 @@ class AuthCommand extends Command
 
         $user = $this->kyc($accessToken, $phoneNumber);
 
-        echo "\n" . json_encode($user) . PHP_EOL;
+        echo "\n".json_encode($user).PHP_EOL;
 
         return self::SUCCESS;
     }
@@ -60,7 +59,7 @@ class AuthCommand extends Command
             ]);
         } catch (RequestException $ex) {
             $response = $ex->getResponse();
-            $this->error("\n" . $response->getStatusCode() . ' ' . $response->getReasonPhrase());
+            $this->error("\n".$response->getStatusCode().' '.$response->getReasonPhrase());
         }
 
         return json_decode($response->getBody(), true);
@@ -84,7 +83,7 @@ class AuthCommand extends Command
             ]);
         } catch (RequestException $ex) {
             $response = $ex->getResponse();
-            $this->error("\nHTTP " . $response->getStatusCode() . ' ' . $response->getReasonPhrase());
+            $this->error("\nHTTP ".$response->getStatusCode().' '.$response->getReasonPhrase());
         }
 
         return json_decode($response->getBody(), true);

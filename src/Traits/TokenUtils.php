@@ -9,7 +9,7 @@ trait TokenUtils
         return $this->access_token;
     }
 
-    public function getRefreshToken(): string|null
+    public function getRefreshToken(): ?string
     {
         return $this->refresh_token;
     }

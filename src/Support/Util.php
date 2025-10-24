@@ -50,7 +50,7 @@ class Util
             return $expires_at->isPast();
         }
 
-        $now = new \DateTime();
+        $now = new \DateTime;
 
         if ($expires_at instanceof \DateTimeInterface) {
             return $now > $expires_at;
@@ -135,7 +135,7 @@ class Util
 
         $clientCredGrant = new ClientCredentials($client, $config);
 
-        $tokenRepo = new TokenRepository();
+        $tokenRepo = new TokenRepository;
 
         return new OAuth2Middleware($tokenRepo, $clientCredGrant, null);
     }

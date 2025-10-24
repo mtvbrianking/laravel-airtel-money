@@ -8,7 +8,7 @@ use Illuminate\Console\ConfirmableTrait;
 
 class PinCommand extends Command
 {
-    use ConfirmableTrait, CommandUtils;
+    use CommandUtils, ConfirmableTrait;
 
     protected $signature = "airtel-money:pin
                             {--no-write : Don't write credentials to .env file.}
@@ -26,7 +26,7 @@ class PinCommand extends Command
 
         $publicKeyPath = $this->writeConfig('public_key');
 
-        $this->info('Using: ' . storage_path($publicKeyPath));
+        $this->info('Using: '.storage_path($publicKeyPath));
 
         $encryptedPin = $this->encrypt($pin, storage_path($publicKeyPath));
 

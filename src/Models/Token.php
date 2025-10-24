@@ -4,9 +4,9 @@ namespace Bmatovu\AirtelMoney\Models;
 
 use Bmatovu\AirtelMoney\Database\Factories\TokenFactory;
 use Bmatovu\AirtelMoney\Traits\TokenUtils;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model as BaseModel;
-use Illuminate\Database\Eloquent\Factories\Factory;
 
 class Token extends BaseModel // implements TokenInterface
 {

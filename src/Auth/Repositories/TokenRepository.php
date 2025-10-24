@@ -3,8 +3,8 @@
 namespace Bmatovu\AirtelMoney\Auth\Repositories;
 
 use Bmatovu\AirtelMoney\Models\Token;
-use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 
 class TokenRepository implements TokenRepositoryInterface
 {
