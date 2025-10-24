@@ -6,10 +6,16 @@ use Bmatovu\AirtelMoney\Models\Token;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Bmatovu\AirtelMoney\Models\Token>
+ */
 class TokenFactory extends Factory
 {
     protected $model = Token::class;
 
+    /**
+     * @return array<string, mixed>
+     */
     public function definition(): array
     {
         return [

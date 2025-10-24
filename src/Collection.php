@@ -16,6 +16,11 @@ class Collection
         $this->config = Container::getInstance()->make(ConfigRepository::class);
     }
 
+    /**
+     * @return array<string, mixed>
+     *
+     * @throws \GuzzleHttp\Exception\TransferException
+     */
     public function receive(string $phoneNumber, float $amount, ?string $id = null, ?string $reference = null): array
     {
         $phoneNumber = substr($phoneNumber, -9);
@@ -42,6 +47,11 @@ class Collection
         return json_decode($response->getBody(), true);
     }
 
+    /**
+     * @return array<string, mixed>
+     *
+     * @throws \GuzzleHttp\Exception\TransferException
+     */
     public function refund(string $airtelMoneyId): array
     {
         $refundUri = $this->config->get('airtel-money.collection.refund_uri');
@@ -57,6 +67,11 @@ class Collection
         return json_decode($response->getBody(), true);
     }
 
+    /**
+     * @return array<string, mixed>
+     *
+     * @throws \GuzzleHttp\Exception\TransferException
+     */
     public function getTransaction(string $transactionId): array
     {
         $transactionUri = $this->config->get('airtel-money.collection.transaction_inquiry_uri');
@@ -68,6 +83,11 @@ class Collection
         return json_decode($response->getBody(), true);
     }
 
+    /**
+     * @return array<string, mixed>
+     *
+     * @throws \GuzzleHttp\Exception\TransferException
+     */
     public function getBalance(): array
     {
         $balanceUri = $this->config->get('airtel-money.collection.balance_inquiry_uri');

@@ -22,7 +22,7 @@ class InitCommand extends Command
             return self::FAILURE;
         }
 
-        $configs = $this->laravel['config']->get('airtel-money');
+        $configs = $this->laravel->make('config')->get('airtel-money');
 
         $configs = $this->flattenArray($configs);
 

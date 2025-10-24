@@ -10,6 +10,9 @@ use Illuminate\Database\Eloquent\Model as BaseModel;
 
 class Token extends BaseModel // implements TokenInterface
 {
+    /**
+     * @use HasFactory<\Bmatovu\AirtelMoney\Database\Factories\TokenFactory>
+     */
     use HasFactory, TokenUtils;
 
     /**
@@ -18,7 +21,7 @@ class Token extends BaseModel // implements TokenInterface
     protected $table = 'airtel_money_tokens';
 
     /**
-     * @var array
+     * @var list<string>
      */
     protected $fillable = [
         'access_token',
@@ -28,7 +31,7 @@ class Token extends BaseModel // implements TokenInterface
     ];
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     protected $casts = [
         'created_at' => 'datetime',
@@ -36,6 +39,9 @@ class Token extends BaseModel // implements TokenInterface
         'expires_at' => 'datetime',
     ];
 
+    /**
+     * @return \Bmatovu\AirtelMoney\Database\Factories\TokenFactory
+     */
     public static function newFactory(): Factory
     {
         return TokenFactory::new();

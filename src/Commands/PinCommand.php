@@ -24,7 +24,7 @@ class PinCommand extends Command
 
         $pin = $this->ask('Enter PIN');
 
-        $publicKeyPath = $this->writeConfig('public_key');
+        $publicKeyPath = (string) $this->writeConfig('public_key');
 
         $this->info('Using: '.storage_path($publicKeyPath));
 
@@ -40,8 +40,13 @@ class PinCommand extends Command
     public function encrypt(string $data, string $publicKeyPath, int $padding = OPENSSL_PKCS1_OAEP_PADDING): string
     {
         $publicKey = file_get_contents($publicKeyPath);
+        if ($publicKey === false) {
+            throw new \RuntimeException("Failed to read public key from {$publicKeyPath}");
+        }
 
-        openssl_public_encrypt($data, $encrypted, $publicKey, $padding);
+        if (! openssl_public_encrypt($data, $encrypted, $publicKey, $padding)) {
+            throw new \RuntimeException('Failed to encrypt data with the public key.');
+        }
 
         return base64_encode($encrypted);
     }

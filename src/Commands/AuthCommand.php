@@ -9,6 +9,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
+use Psr\Http\Message\ResponseInterface;
 
 class AuthCommand extends Command
 {
@@ -26,9 +27,9 @@ class AuthCommand extends Command
             return self::FAILURE;
         }
 
-        $clientId = $this->writeConfig('client_id');
+        $clientId = (string) $this->writeConfig('client_id');
 
-        $clientSecret = $this->writeConfig('client_secret');
+        $clientSecret = (string) $this->writeConfig('client_secret');
 
         $token = $this->auth($clientId, $clientSecret);
 
@@ -45,9 +46,12 @@ class AuthCommand extends Command
         return self::SUCCESS;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function auth(string $clientId, string $clientSecret): array
     {
-        $authUri = $this->laravel['config']->get('airtel-money.token_uri');
+        $authUri = $this->laravel->make('config')->get('airtel-money.token_uri');
 
         try {
             $response = $this->http()->request('POST', $authUri, [
@@ -59,31 +63,46 @@ class AuthCommand extends Command
             ]);
         } catch (RequestException $ex) {
             $response = $ex->getResponse();
+
+            if (! $response instanceof ResponseInterface) {
+                $this->error("\n".$ex->getMessage());
+                throw $ex;
+            }
+
             $this->error("\n".$response->getStatusCode().' '.$response->getReasonPhrase());
         }
 
         return json_decode($response->getBody(), true);
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function kyc(string $accessToken, string $phoneNumber): array
     {
         $phoneNumber = substr($phoneNumber, -9);
 
-        $kycUri = $this->laravel['config']->get('airtel-money.kyc_uri');
+        $kycUri = $this->laravel->make('config')->get('airtel-money.kyc_uri');
 
         $kycUri = str_replace(':phoneNumber', $phoneNumber, $kycUri);
 
         try {
             $response = $this->http()->request('GET', $kycUri, [
                 'headers' => [
-                    'X-Country' => $this->laravel['config']->get('airtel-money.country'),
-                    'X-Currency' => $this->laravel['config']->get('airtel-money.currency'),
+                    'X-Country' => $this->laravel->make('config')->get('airtel-money.country'),
+                    'X-Currency' => $this->laravel->make('config')->get('airtel-money.currency'),
                     'Authorization' => "Bearer {$accessToken}",
                 ],
             ]);
         } catch (RequestException $ex) {
             $response = $ex->getResponse();
-            $this->error("\nHTTP ".$response->getStatusCode().' '.$response->getReasonPhrase());
+
+            if (! $response instanceof ResponseInterface) {
+                $this->error("\n".$ex->getMessage());
+                throw $ex;
+            }
+
+            $this->error("\n".$response->getStatusCode().' '.$response->getReasonPhrase());
         }
 
         return json_decode($response->getBody(), true);
@@ -98,11 +117,11 @@ class AuthCommand extends Command
             'progress' => function () {
                 echo '.';
             },
-            'base_uri' => $this->laravel['config']->get('airtel-money.base_uri'),
+            'base_uri' => $this->laravel->make('config')->get('airtel-money.base_uri'),
             'headers' => [
                 'Content-Type' => 'application/json',
             ],
-        ], (array) $this->laravel['config']->get('airtel-money.guzzle.options'));
+        ], (array) $this->laravel->make('config')->get('airtel-money.guzzle.options'));
 
         return new Client($options);
     }

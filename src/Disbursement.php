@@ -16,6 +16,11 @@ class Disbursement
         $this->config = Container::getInstance()->make(ConfigRepository::class);
     }
 
+    /**
+     * @return array<string, mixed>
+     *
+     * @throws \GuzzleHttp\Exception\TransferException
+     */
     public function send(string $phoneNumber, float $amount, ?string $id = null, ?string $reference = null): array
     {
         $phoneNumber = substr($phoneNumber, -9);
@@ -39,6 +44,11 @@ class Disbursement
         return json_decode($response->getBody(), true);
     }
 
+    /**
+     * @return array<string, mixed>
+     *
+     * @throws \GuzzleHttp\Exception\TransferException
+     */
     public function getTransaction(string $transactionId): array
     {
         $transactionUri = $this->config->get('airtel-money.disbursement.transaction_inquiry_uri');

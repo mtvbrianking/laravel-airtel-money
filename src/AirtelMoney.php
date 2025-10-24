@@ -17,7 +17,9 @@ class AirtelMoney
     }
 
     /**
-     * @throws GuzzleHttp\Exception\TransferException
+     * @return array<string, mixed>
+     *
+     * @throws \GuzzleHttp\Exception\TransferException
      */
     public function getToken(): array
     {
@@ -39,11 +41,13 @@ class AirtelMoney
             ],
         ]);
 
-        return json_decode($response->getBody(), true);
+        return json_decode((string) $response->getBody(), true);
     }
 
     /**
-     * @throws GuzzleHttp\Exception\TransferException
+     * @return array<string, mixed>
+     *
+     * @throws \GuzzleHttp\Exception\TransferException
      */
     public function getUser(string $phoneNumber): array
     {
@@ -55,6 +59,6 @@ class AirtelMoney
 
         $response = Util::http()->request('GET', $kycUri);
 
-        return json_decode($response->getBody(), true);
+        return json_decode((string) $response->getBody(), true);
     }
 }

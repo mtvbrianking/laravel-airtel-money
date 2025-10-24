@@ -23,7 +23,7 @@ trait CommandUtils
 
     protected function persistConfig(string $configKey, ?string $value): void
     {
-        $this->laravel['config']->set([$configKey => $value]);
+        $this->laravel->make('config')->set([$configKey => $value]);
 
         if ($this->option('no-write')) {
             return;
@@ -53,7 +53,7 @@ trait CommandUtils
     ): ?string {
         $configKey = "{$config}.{$key}";
 
-        $oldValue = $value ?? $this->laravel['config']->get($configKey);
+        $oldValue = $value ?? $this->laravel->make('config')->get($configKey);
 
         $val = $this->ask($key, $oldValue);
 
