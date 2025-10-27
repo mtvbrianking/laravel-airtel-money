@@ -37,9 +37,9 @@ class OAuth2Middleware
     }
 
     public function __construct(
-        TokenRepositoryInterface $tokenRepository,
         GrantTypeInterface $grantType,
-        ?GrantTypeInterface $refreshTokenGrantType = null
+        ?GrantTypeInterface $refreshTokenGrantType = null,
+        ?TokenRepositoryInterface $tokenRepository = null
     ) {
         $this->tokenRepository = $tokenRepository;
         $this->grantType = $grantType;

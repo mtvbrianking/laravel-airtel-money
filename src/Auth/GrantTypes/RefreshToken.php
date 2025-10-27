@@ -4,7 +4,7 @@ namespace Bmatovu\AirtelMoney\Auth\GrantTypes;
 
 use GuzzleHttp\ClientInterface;
 
-class ClientCredentials implements GrantTypeInterface
+class RefreshToken implements GrantTypeInterface
 {
     private ClientInterface $client;
 
@@ -30,6 +30,11 @@ class ClientCredentials implements GrantTypeInterface
         ], $config);
     }
 
+    /**
+     * @return array<string, mixed>
+     *
+     * @throws \GuzzleHttp\Exception\TransferException
+     */
     public function getToken(?string $refreshToken = null): array
     {
         $response = $this->client->request('POST', $this->config['token_uri'], [
@@ -39,8 +44,8 @@ class ClientCredentials implements GrantTypeInterface
                 'Authorization' => 'Basic '.base64_encode($this->config['client_id'].':'.$this->config['client_secret']),
             ],
             'json' => [
-                'grant_type' => 'client_credentials',
-                'scope' => $this->config['scope'],
+                'grant_type' => 'refresh_token',
+                'refresh_token' => $refreshToken,
             ],
         ]);
 

@@ -112,6 +112,6 @@ class Util
 
         $tokenRepo = new TokenRepository;
 
-        return new OAuth2Middleware($tokenRepo, $clientCredGrant, null);
+        return new OAuth2Middleware($clientCredGrant, null, $tokenRepo);
     }
 }

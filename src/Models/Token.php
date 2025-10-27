@@ -2,13 +2,14 @@
 
 namespace Bmatovu\AirtelMoney\Models;
 
+use Bmatovu\AirtelMoney\Auth\Models\TokenInterface;
 use Bmatovu\AirtelMoney\Database\Factories\TokenFactory;
 use Bmatovu\AirtelMoney\Traits\TokenUtils;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model as BaseModel;
 
-class Token extends BaseModel // implements TokenInterface
+class Token extends BaseModel implements TokenInterface
 {
     /**
      * @use HasFactory<\Bmatovu\AirtelMoney\Database\Factories\TokenFactory>
