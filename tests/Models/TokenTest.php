@@ -31,7 +31,7 @@ class TokenTest extends TestCase
         $this->assertDatabaseHas('airtel_money_tokens', $data);
     }
 
-    public function test_getters(): void
+    public function test_can_use_getters(): void
     {
         $access_token = Str::random(60);
         $refresh_token = Str::random(60);
@@ -52,7 +52,7 @@ class TokenTest extends TestCase
         $this->assertEquals($expires_at->format('Y-m-d H:i:s'), $token->getExpiresAt()->format('Y-m-d H:i:s'));
     }
 
-    public function test_determines_expired(): void
+    public function test_can_determine_expiry(): void
     {
         $token = Token::factory()->create([
             'expires_at' => null,

@@ -2,18 +2,21 @@
 
 namespace Bmatovu\AirtelMoney;
 
-use Bmatovu\AirtelMoney\Support\Util;
+use GuzzleHttp\ClientInterface;
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Config\Repository as ConfigRepository;
+use Illuminate\Contracts\Config\Repository;
 use Ramsey\Uuid\Uuid;
 
 class Disbursement
 {
-    public ConfigRepository $config;
+    protected ClientInterface $http;
 
-    public function __construct()
+    protected Repository $config;
+
+    public function __construct(ClientInterface $http)
     {
-        $this->config = Container::getInstance()->make(ConfigRepository::class);
+        $this->http = $http;
+        $this->config = Container::getInstance()->make('config');
     }
 
     /**
@@ -27,7 +30,7 @@ class Disbursement
 
         $paymentUri = $this->config->get('airtel-money.disbursement.payment_uri');
 
-        $response = Util::http()->request('POST', $paymentUri, [
+        $response = $this->http->request('POST', $paymentUri, [
             'json' => [
                 'payee' => [
                     'msisdn' => $phoneNumber,
@@ -41,7 +44,7 @@ class Disbursement
             ],
         ]);
 
-        return json_decode($response->getBody(), true);
+        return json_decode((string) $response->getBody(), true);
     }
 
     /**
@@ -55,8 +58,26 @@ class Disbursement
 
         $transactionUri = str_replace(':transactionId', $transactionId, $transactionUri);
 
-        $response = Util::http()->request('GET', $transactionUri);
+        $response = $this->http->request('GET', $transactionUri);
 
-        return json_decode($response->getBody(), true);
+        return json_decode((string) $response->getBody(), true);
+    }
+
+    /**
+     * @return array<string, mixed>
+     *
+     * @throws \GuzzleHttp\Exception\TransferException
+     */
+    public function getUser(string $phoneNumber): array
+    {
+        $phoneNumber = substr($phoneNumber, -9);
+
+        $kycUri = $this->config->get('airtel-money.kyc_uri');
+
+        $kycUri = str_replace(':phoneNumber', $phoneNumber, $kycUri);
+
+        $response = $this->http->request('GET', $kycUri);
+
+        return json_decode((string) $response->getBody(), true);
     }
 }

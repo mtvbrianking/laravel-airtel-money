@@ -65,7 +65,7 @@
                 "Bmatovu\\AirtelMoney\\AirtelMoneyServiceProvider"
             ],
             "aliases": {
-                "AirtelMoney": "Bmatovu\\AirtelMoney\\Facades\\AirtelMoney",
+                "Authentication": "Bmatovu\\AirtelMoney\\Facades\\Authentication",
                 "Collection": "Bmatovu\\AirtelMoney\\Facades\\Collection",
                 "Disbursement": "Bmatovu\\AirtelMoney\\Facades\\Disbursement"
             }
