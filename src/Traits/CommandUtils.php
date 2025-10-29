@@ -4,23 +4,6 @@ namespace Bmatovu\AirtelMoney\Traits;
 
 trait CommandUtils
 {
-    protected function flattenArray(array $array, string $prefix = ''): array
-    {
-        $result = [];
-
-        foreach ($array as $key => $value) {
-            $fullKey = $prefix ? "{$prefix}.{$key}" : $key;
-
-            if (is_array($value)) {
-                $result += $this->flattenArray($value, $fullKey);
-            } else {
-                $result[$fullKey] = $value;
-            }
-        }
-
-        return $result;
-    }
-
     protected function persistConfig(string $configKey, ?string $value): void
     {
         $this->laravel->make('config')->set([$configKey => $value]);
@@ -55,10 +38,10 @@ trait CommandUtils
 
         $oldValue = $value ?? $this->laravel->make('config')->get($configKey);
 
-        $val = $this->ask($key, $oldValue);
+        $newValue = $this->ask($key, $oldValue);
 
-        $this->persistConfig($configKey, $val);
+        $this->persistConfig($configKey, $newValue);
 
-        return $val;
+        return $newValue;
     }
 }

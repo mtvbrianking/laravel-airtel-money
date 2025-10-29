@@ -2,10 +2,8 @@
 
 namespace Bmatovu\AirtelMoney\Commands;
 
-use Bmatovu\AirtelMoney\Support\Util;
+use Bmatovu\AirtelMoney\Facades\Authentication;
 use Bmatovu\AirtelMoney\Traits\CommandUtils;
-use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
@@ -27,102 +25,30 @@ class AuthCommand extends Command
             return self::FAILURE;
         }
 
-        $clientId = (string) $this->writeConfig('client_id');
+        $this->line('<options=bold>Client App Credentials</>');
 
-        $clientSecret = (string) $this->writeConfig('client_secret');
+        $this->writeConfig('client_id');
 
-        $token = $this->auth($clientId, $clientSecret);
+        $this->writeConfig('client_secret');
 
-        echo "\n".json_encode($token).PHP_EOL;
+        try {
+            $apiRes = Authentication::getToken();
 
-        $phoneNumber = $this->ask('Enter Phone Number');
+            $this->line(json_encode($apiRes, JSON_PRETTY_PRINT));
+        } catch (RequestException $ex) {
+            $response = $ex->getResponse();
 
-        $accessToken = $token['access_token'];
+            if ($response instanceof ResponseInterface) {
+                $this->error($response->getStatusCode().' '.$response->getReasonPhrase());
 
-        $user = $this->kyc($accessToken, $phoneNumber);
+                $this->error($response->getBody());
 
-        echo "\n".json_encode($user).PHP_EOL;
+                return self::FAILURE;
+            }
+
+            $this->error($ex->getMessage());
+        }
 
         return self::SUCCESS;
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    protected function auth(string $clientId, string $clientSecret): array
-    {
-        $authUri = $this->laravel->make('config')->get('airtel-money.token_uri');
-
-        try {
-            $response = $this->http()->request('POST', $authUri, [
-                'json' => [
-                    'client_id' => $clientId,
-                    'client_secret' => $clientSecret,
-                    'grant_type' => 'client_credentials',
-                ],
-            ]);
-        } catch (RequestException $ex) {
-            $response = $ex->getResponse();
-
-            if (! $response instanceof ResponseInterface) {
-                $this->error("\n".$ex->getMessage());
-                throw $ex;
-            }
-
-            $this->error("\n".$response->getStatusCode().' '.$response->getReasonPhrase());
-        }
-
-        return json_decode($response->getBody(), true);
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    protected function kyc(string $accessToken, string $phoneNumber): array
-    {
-        $phoneNumber = substr($phoneNumber, -9);
-
-        $kycUri = $this->laravel->make('config')->get('airtel-money.kyc_uri');
-
-        $kycUri = str_replace(':phoneNumber', $phoneNumber, $kycUri);
-
-        try {
-            $response = $this->http()->request('GET', $kycUri, [
-                'headers' => [
-                    'X-Country' => $this->laravel->make('config')->get('airtel-money.country'),
-                    'X-Currency' => $this->laravel->make('config')->get('airtel-money.currency'),
-                    'Authorization' => "Bearer {$accessToken}",
-                ],
-            ]);
-        } catch (RequestException $ex) {
-            $response = $ex->getResponse();
-
-            if (! $response instanceof ResponseInterface) {
-                $this->error("\n".$ex->getMessage());
-                throw $ex;
-            }
-
-            $this->error("\n".$response->getStatusCode().' '.$response->getReasonPhrase());
-        }
-
-        return json_decode($response->getBody(), true);
-    }
-
-    protected function http(): ClientInterface
-    {
-        $handlerStack = Util::logMiddleware();
-
-        $options = array_merge([
-            'handler' => $handlerStack,
-            'progress' => function () {
-                echo '.';
-            },
-            'base_uri' => $this->laravel->make('config')->get('airtel-money.base_uri'),
-            'headers' => [
-                'Content-Type' => 'application/json',
-            ],
-        ], (array) $this->laravel->make('config')->get('airtel-money.guzzle.options'));
-
-        return new Client($options);
     }
 }

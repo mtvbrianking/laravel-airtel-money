@@ -1,9 +1,9 @@
 # Laravel Airtel Money
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/bmatovu/laravel-airtel-money.svg?style=flat-square)](https://packagist.org/packages/bmatovu/laravel-airtel-money)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/bmatovu/laravel-airtel-money/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/bmatovu/laravel-airtel-money/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/bmatovu/laravel-airtel-money/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/bmatovu/laravel-airtel-money/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/bmatovu/laravel-airtel-money.svg?style=flat-square)](https://packagist.org/packages/bmatovu/laravel-airtel-money)
+[![Latest Stable Version](https://poser.pugx.org/bmatovu/laravel-airtel-money/v/stable)](https://packagist.org/packages/bmatovu/laravel-airtel-money)
+[![Code Quality](https://scrutinizer-ci.com/g/mtvbrianking/laravel-airtel-money/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/mtvbrianking/laravel-airtel-money/?branch=main)
+[![Code Coverage](https://scrutinizer-ci.com/g/mtvbrianking/laravel-airtel-money/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/mtvbrianking/laravel-airtel-money/?branch=main)
+[![Tests](https://github.com/mtvbrianking/laravel-airtel-money/workflows/run-tests/badge.svg)](https://github.com/mtvbrianking/laravel-airtel-money/actions?query=workflow:run-tests)
 
 ### Prerequisites
 
@@ -59,14 +59,12 @@ php artisan airtel-money:pin
 
 ## Usage
 
-**Authentication & KYC**
+**Authentication**
 
 ```php
-use Bmatovu\AirtelMoney\Facades\AirtelMoney;
+use Bmatovu\AirtelMoney\Facades\Authentication;
 
-$token = AirtelMoney::getToken();
-
-$user  = AirtelMoney::getUser($phoneNumber);
+$token = Authentication::getToken();
 ```
 
 **Collections**
@@ -81,6 +79,8 @@ $transaction = Collection::refund($airtelMoneyId);
 $transaction = Collection::getTransaction($transactionId);
 
 $balance     = Collection::getBalance();
+
+$user        = Collection::getUser($phoneNumber);
 ```
 
 **Disbursement**
@@ -91,6 +91,8 @@ use Bmatovu\AirtelMoney\Facades\Disbursement;
 $transaction = Disbursement::send($phoneNumber, $amount);
 
 $transaction = Disbursement::getTransaction($transactionId);
+
+$user        = Disbursement::getUser($phoneNumber);
 ```
 
 ## Testing
@@ -98,18 +100,6 @@ $transaction = Disbursement::getTransaction($transactionId);
 ```bash
 composer test
 ```
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 

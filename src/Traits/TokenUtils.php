@@ -19,7 +19,6 @@ trait TokenUtils
         return $this->token_type;
     }
 
-    // public function getExpiresAt(): string|\Datetime
     public function getExpiresAt(): \Datetime
     {
         return $this->expires_at;

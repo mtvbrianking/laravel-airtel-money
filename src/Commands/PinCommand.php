@@ -22,17 +22,19 @@ class PinCommand extends Command
             return self::FAILURE;
         }
 
-        $pin = $this->ask('Enter PIN');
+        $this->line('<options=bold>Set Disbursement PIN</>');
+
+        $pin = $this->ask('Enter 4 digit PIN');
 
         $publicKeyPath = (string) $this->writeConfig('public_key');
 
-        $this->info('Using: '.storage_path($publicKeyPath));
+        $this->info("\nUsing: ".storage_path($publicKeyPath));
 
         $encryptedPin = $this->encrypt($pin, storage_path($publicKeyPath));
 
         $this->persistConfig('airtel-money.encrypted_pin', $encryptedPin);
 
-        $this->info('Encrypted PIN written to .env file');
+        $this->info("\nEncrypted PIN written to .env file");
 
         return self::SUCCESS;
     }
@@ -40,6 +42,7 @@ class PinCommand extends Command
     public function encrypt(string $data, string $publicKeyPath, int $padding = OPENSSL_PKCS1_OAEP_PADDING): string
     {
         $publicKey = file_get_contents($publicKeyPath);
+
         if ($publicKey === false) {
             throw new \RuntimeException("Failed to read public key from {$publicKeyPath}");
         }

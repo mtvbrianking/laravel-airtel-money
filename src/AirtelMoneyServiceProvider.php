@@ -3,7 +3,6 @@
 namespace Bmatovu\AirtelMoney;
 
 use Bmatovu\AirtelMoney\Commands\AuthCommand;
-use Bmatovu\AirtelMoney\Commands\InitCommand;
 use Bmatovu\AirtelMoney\Commands\PinCommand;
 use Bmatovu\AirtelMoney\Support\Util;
 use GuzzleHttp\Client;
@@ -32,10 +31,8 @@ class AirtelMoneyServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         $this->commands([
-            InitCommand::class,
             PinCommand::class,
             AuthCommand::class,
-            // PurgeTokensCommand::class,
         ]);
     }
 
@@ -47,7 +44,6 @@ class AirtelMoneyServiceProvider extends ServiceProvider
             ->needs(ClientInterface::class)
             ->give(function () {
                 return new Client([
-                    'base_uri' => config('airtel-money.base_uri'),
                     'handler' => Util::logMiddleware(),
                     'base_uri' => $this->app['config']->get('airtel-money.base_uri'),
                     'headers' => [
@@ -61,20 +57,5 @@ class AirtelMoneyServiceProvider extends ServiceProvider
             ->give(function () {
                 return Util::http();
             });
-
-        // $this->app->bind('airtel-money.no_auth_client', function ($app) {
-        //     return new Client([
-        //         'base_uri' => config('airtel-money.base_uri'),
-        //         'handler' => Util::logMiddleware(),
-        //         'base_uri' => $this->app['config']->get('airtel-money.base_uri'),
-        //         'headers' => [
-        //             'Content-Type' => 'application/json',
-        //         ],
-        //     ]);
-        // });
-
-        // $this->app->bind('airtel-money.no_auth_client', function ($app) {
-        //     return Util::http();
-        // });
     }
 }
