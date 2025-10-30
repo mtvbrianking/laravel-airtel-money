@@ -1,4 +1,4 @@
-# Laravel Airtel Money
+## Laravel Airtel Money
 
 [![Latest Stable Version](https://poser.pugx.org/bmatovu/laravel-airtel-money/v/stable)](https://packagist.org/packages/bmatovu/laravel-airtel-money)
 [![Code Quality](https://scrutinizer-ci.com/g/mtvbrianking/laravel-airtel-money/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/mtvbrianking/laravel-airtel-money/?branch=main)
@@ -7,27 +7,27 @@
 
 ### Prerequisites
 
-You will need the following to get started with you integration...
+You will need the following to get started with your integration:
 
-1. Create an `application` on the [AirtelMoney Developer Portal](https://developers.airtel.africa/user/signup).
+1. Create an `application` on the [Airtel Money Developer Portal](https://developers.airtel.africa/user/signup).
 
-2. Write to the [AirtelMoney Support Team](https://developers.airtel.africa/user/support) to get your application approved, [here](mailto:kyc@ug.airtel.com?subject=AirtelMoney%20KYC%20submission).
+2. Write to the **Airtel Money Support Team** to get your application approved, [here](https://developers.airtel.africa/user/support).
 
-Note: Your application won't work until it's approved. You can check the statuses in the portal. 
+_**Note:** Your application will not work until it’s approved. You can confirm your app's status in the portal._
 
-| Status             | Explanation   |
-|--------------------|---------------|
-| NA                 | Not Approved  |
-| Partially Approved | UAT Approved  |
-| Approved           | PROD Approved |
+| Status             | Meaning           |
+|:-------------------|:------------------|
+| NA                 | Not Approved      |
+| Partially Approved | Approved for UAT  |
+| Approved           | Approved for PROD |
 
-## Getting started
+### Getting Started
 
 **Installation**
 
 ```bash
 composer require bmatovu/laravel-airtel-money
-```
+````
 
 **Publishables**
 
@@ -35,29 +35,29 @@ composer require bmatovu/laravel-airtel-money
 php artisan vendor:publish --provider="Bmatovu\AirtelMoney\AirtelMoneyServiceProvider"
 ```
 
-**Migrations**
+**Database Migrations**
 
 ```bash
 php artisan migrate
 ```
 
-## Authentication & PIN
+### Authentication & PIN
 
-**Set credentials**
+**Set Credentials**
 
-Get the `client_id` and `client_secret` from **Key Management** 
+Retrieve your `client_id` and `client_secret` from **Key Management**
 
 ```bash
 php artisan airtel-money:auth
 ```
 
-**Set disbursement PIN**
+**Set Disbursement PIN**
 
 ```bash
 php artisan airtel-money:pin
 ```
 
-## Usage
+### Usage
 
 **Authentication**
 
@@ -95,17 +95,17 @@ $transaction = Disbursement::getTransaction($transactionId);
 $user        = Disbursement::getUser($phoneNumber);
 ```
 
-## Testing
+### Testing
 
 ```bash
 composer test
 ```
 
-## Credits
+### Credits
 
-- [mtvbrianking](https://github.com/mtvbrianking)
-- [All Contributors](../../contributors)
+* [mtvbrianking](https://github.com/mtvbrianking)
+* [All Contributors](../../contributors)
 
-## License
+### License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+This package is open-source software licensed under the [MIT License](LICENSE.md).
