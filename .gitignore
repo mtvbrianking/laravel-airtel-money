@@ -1,7 +1,0 @@
-.idea
-*.cache
-composer.lock
-coverage
-coverage.clover
-docs
-vendor
