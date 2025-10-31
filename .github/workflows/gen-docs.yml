@@ -1,4 +1,4 @@
-name: gen-docs
+name: docs
 
 on:
     workflow_dispatch:
