@@ -1,0 +1,189 @@
+{
+    "name": "Bmatovu\\AirtelMoney\\Commands\\PinCommand",
+    "line": 9,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Bmatovu\\AirtelMoney\\Commands",
+    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Commands\/PinCommand.php",
+    "relative_file": "\/src\/Commands\/PinCommand.php",
+    "hash": "dd4499ef2e156479018aa0d1729d18d6f2519c50",
+    "parent": "Illuminate\\Console\\Command",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "CommandUtils": "Bmatovu\\AirtelMoney\\Traits\\CommandUtils",
+        "Command": "Illuminate\\Console\\Command",
+        "ConfirmableTrait": "Illuminate\\Console\\ConfirmableTrait"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Bmatovu\\AirtelMoney\\Traits\\CommandUtils": "Bmatovu\\AirtelMoney\\Traits\\CommandUtils",
+        "Illuminate\\Console\\ConfirmableTrait": "Illuminate\\Console\\ConfirmableTrait"
+    },
+    "properties": {
+        "signature": {
+            "name": "signature",
+            "line": 13,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "attributes": {
+                    "startLine": 13,
+                    "startTokenPos": 46,
+                    "startFilePos": 270,
+                    "endLine": 15,
+                    "endTokenPos": 46,
+                    "endFilePos": 457,
+                    "kind": 2,
+                    "rawValue": "\"airtel-money:pin\n                            {--no-write : Don't write credentials to .env file.}\n                            {--f|force : Force the operation to run when in production.}\""
+                },
+                "value": "airtel-money:pin\n                            {--no-write : Don't write credentials to .env file.}\n                            {--f|force : Force the operation to run when in production.}"
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false,
+            "is_intersection_type": false
+        },
+        "description": {
+            "name": "description",
+            "line": 17,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Scalar_String",
+                "attributes": {
+                    "startLine": 17,
+                    "startTokenPos": 55,
+                    "startFilePos": 487,
+                    "endLine": 17,
+                    "endTokenPos": 55,
+                    "endFilePos": 516,
+                    "kind": 1,
+                    "rawValue": "'Encrypt the disbursement PIN'"
+                },
+                "value": "Encrypt the disbursement PIN"
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false,
+            "is_intersection_type": false
+        }
+    },
+    "methods": {
+        "handle": {
+            "name": "handle",
+            "line": 19,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "int",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "encrypt": {
+            "name": "encrypt",
+            "line": 42,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "data": {
+                    "name": "data",
+                    "line": 42,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                },
+                "publicKeyPath": {
+                    "name": "publicKeyPath",
+                    "line": 42,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                },
+                "padding": {
+                    "name": "padding",
+                    "line": 42,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "OPENSSL_PKCS1_OAEP_PADDING",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

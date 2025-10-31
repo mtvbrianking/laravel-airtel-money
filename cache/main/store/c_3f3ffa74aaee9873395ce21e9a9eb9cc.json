@@ -1,0 +1,397 @@
+{
+    "name": "Bmatovu\\AirtelMoney\\Models\\Token",
+    "line": 12,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Bmatovu\\AirtelMoney\\Models",
+    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Models\/Token.php",
+    "relative_file": "\/src\/Models\/Token.php",
+    "hash": "675cd95ce05cd3f670b488d31fa58ecb36d1fa1c",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "TokenInterface": "Bmatovu\\AirtelMoney\\Auth\\Models\\TokenInterface",
+        "TokenFactory": "Bmatovu\\AirtelMoney\\Database\\Factories\\TokenFactory",
+        "TokenUtils": "Bmatovu\\AirtelMoney\\Traits\\TokenUtils",
+        "Factory": "Illuminate\\Database\\Eloquent\\Factories\\Factory",
+        "HasFactory": "Illuminate\\Database\\Eloquent\\Factories\\HasFactory",
+        "BaseModel": "Illuminate\\Database\\Eloquent\\Model"
+    },
+    "errors": [],
+    "interfaces": {
+        "Bmatovu\\AirtelMoney\\Auth\\Models\\TokenInterface": "Bmatovu\\AirtelMoney\\Auth\\Models\\TokenInterface"
+    },
+    "traits": {
+        "Illuminate\\Database\\Eloquent\\Factories\\HasFactory": "Illuminate\\Database\\Eloquent\\Factories\\HasFactory",
+        "Bmatovu\\AirtelMoney\\Traits\\TokenUtils": "Bmatovu\\AirtelMoney\\Traits\\TokenUtils"
+    },
+    "properties": {
+        "table": {
+            "name": "table",
+            "line": 22,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ],
+                [
+                    "null",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "attributes": {
+                    "startLine": 22,
+                    "startTokenPos": 73,
+                    "startFilePos": 606,
+                    "endLine": 22,
+                    "endTokenPos": 73,
+                    "endFilePos": 626,
+                    "kind": 1,
+                    "rawValue": "'airtel_money_tokens'"
+                },
+                "value": "airtel_money_tokens"
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false,
+            "is_intersection_type": false
+        },
+        "fillable": {
+            "name": "fillable",
+            "line": 27,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": [
+                [
+                    "Bmatovu\\AirtelMoney\\Models\\list<string>",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 27,
+                    "startTokenPos": 84,
+                    "startFilePos": 697,
+                    "endLine": 32,
+                    "endTokenPos": 98,
+                    "endFilePos": 796,
+                    "kind": 2
+                },
+                "items": [
+                    {
+                        "nodeType": "ArrayItem",
+                        "attributes": {
+                            "startLine": 28,
+                            "startTokenPos": 86,
+                            "startFilePos": 707,
+                            "endLine": 28,
+                            "endTokenPos": 86,
+                            "endFilePos": 720
+                        },
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 28,
+                                "startTokenPos": 86,
+                                "startFilePos": 707,
+                                "endLine": 28,
+                                "endTokenPos": 86,
+                                "endFilePos": 720,
+                                "kind": 1,
+                                "rawValue": "'access_token'"
+                            },
+                            "value": "access_token"
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    },
+                    {
+                        "nodeType": "ArrayItem",
+                        "attributes": {
+                            "startLine": 29,
+                            "startTokenPos": 89,
+                            "startFilePos": 731,
+                            "endLine": 29,
+                            "endTokenPos": 89,
+                            "endFilePos": 745
+                        },
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 29,
+                                "startTokenPos": 89,
+                                "startFilePos": 731,
+                                "endLine": 29,
+                                "endTokenPos": 89,
+                                "endFilePos": 745,
+                                "kind": 1,
+                                "rawValue": "'refresh_token'"
+                            },
+                            "value": "refresh_token"
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    },
+                    {
+                        "nodeType": "ArrayItem",
+                        "attributes": {
+                            "startLine": 30,
+                            "startTokenPos": 92,
+                            "startFilePos": 756,
+                            "endLine": 30,
+                            "endTokenPos": 92,
+                            "endFilePos": 767
+                        },
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 30,
+                                "startTokenPos": 92,
+                                "startFilePos": 756,
+                                "endLine": 30,
+                                "endTokenPos": 92,
+                                "endFilePos": 767,
+                                "kind": 1,
+                                "rawValue": "'token_type'"
+                            },
+                            "value": "token_type"
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    },
+                    {
+                        "nodeType": "ArrayItem",
+                        "attributes": {
+                            "startLine": 31,
+                            "startTokenPos": 95,
+                            "startFilePos": 778,
+                            "endLine": 31,
+                            "endTokenPos": 95,
+                            "endFilePos": 789
+                        },
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 31,
+                                "startTokenPos": 95,
+                                "startFilePos": 778,
+                                "endLine": 31,
+                                "endTokenPos": 95,
+                                "endFilePos": 789,
+                                "kind": 1,
+                                "rawValue": "'expires_at'"
+                            },
+                            "value": "expires_at"
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    }
+                ]
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false,
+            "is_intersection_type": false
+        },
+        "casts": {
+            "name": "casts",
+            "line": 37,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": [
+                [
+                    "Bmatovu\\AirtelMoney\\Models\\array<string,string>",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 37,
+                    "startTokenPos": 109,
+                    "startFilePos": 873,
+                    "endLine": 41,
+                    "endTokenPos": 132,
+                    "endFilePos": 987,
+                    "kind": 2
+                },
+                "items": [
+                    {
+                        "nodeType": "ArrayItem",
+                        "attributes": {
+                            "startLine": 38,
+                            "startTokenPos": 111,
+                            "startFilePos": 883,
+                            "endLine": 38,
+                            "endTokenPos": 115,
+                            "endFilePos": 908
+                        },
+                        "key": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 38,
+                                "startTokenPos": 111,
+                                "startFilePos": 883,
+                                "endLine": 38,
+                                "endTokenPos": 111,
+                                "endFilePos": 894,
+                                "kind": 1,
+                                "rawValue": "'created_at'"
+                            },
+                            "value": "created_at"
+                        },
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 38,
+                                "startTokenPos": 115,
+                                "startFilePos": 899,
+                                "endLine": 38,
+                                "endTokenPos": 115,
+                                "endFilePos": 908,
+                                "kind": 1,
+                                "rawValue": "'datetime'"
+                            },
+                            "value": "datetime"
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    },
+                    {
+                        "nodeType": "ArrayItem",
+                        "attributes": {
+                            "startLine": 39,
+                            "startTokenPos": 118,
+                            "startFilePos": 919,
+                            "endLine": 39,
+                            "endTokenPos": 122,
+                            "endFilePos": 944
+                        },
+                        "key": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 39,
+                                "startTokenPos": 118,
+                                "startFilePos": 919,
+                                "endLine": 39,
+                                "endTokenPos": 118,
+                                "endFilePos": 930,
+                                "kind": 1,
+                                "rawValue": "'updated_at'"
+                            },
+                            "value": "updated_at"
+                        },
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 39,
+                                "startTokenPos": 122,
+                                "startFilePos": 935,
+                                "endLine": 39,
+                                "endTokenPos": 122,
+                                "endFilePos": 944,
+                                "kind": 1,
+                                "rawValue": "'datetime'"
+                            },
+                            "value": "datetime"
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    },
+                    {
+                        "nodeType": "ArrayItem",
+                        "attributes": {
+                            "startLine": 40,
+                            "startTokenPos": 125,
+                            "startFilePos": 955,
+                            "endLine": 40,
+                            "endTokenPos": 129,
+                            "endFilePos": 980
+                        },
+                        "key": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 40,
+                                "startTokenPos": 125,
+                                "startFilePos": 955,
+                                "endLine": 40,
+                                "endTokenPos": 125,
+                                "endFilePos": 966,
+                                "kind": 1,
+                                "rawValue": "'expires_at'"
+                            },
+                            "value": "expires_at"
+                        },
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 40,
+                                "startTokenPos": 129,
+                                "startFilePos": 971,
+                                "endLine": 40,
+                                "endTokenPos": 129,
+                                "endFilePos": 980,
+                                "kind": 1,
+                                "rawValue": "'datetime'"
+                            },
+                            "value": "datetime"
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    }
+                ]
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false,
+            "is_intersection_type": false
+        }
+    },
+    "methods": {
+        "newFactory": {
+            "name": "newFactory",
+            "line": 46,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Factories\\Factory",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

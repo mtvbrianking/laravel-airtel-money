@@ -1,0 +1,69 @@
+{
+    "name": "Bmatovu\\AirtelMoney\\AirtelMoneyServiceProvider",
+    "line": 12,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Bmatovu\\AirtelMoney",
+    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/AirtelMoneyServiceProvider.php",
+    "relative_file": "\/src\/AirtelMoneyServiceProvider.php",
+    "hash": "11f8cbf7222a4b0492a8bdb89f8f8c20a1d24986",
+    "parent": "Illuminate\\Support\\ServiceProvider",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "AuthCommand": "Bmatovu\\AirtelMoney\\Commands\\AuthCommand",
+        "PinCommand": "Bmatovu\\AirtelMoney\\Commands\\PinCommand",
+        "Util": "Bmatovu\\AirtelMoney\\Support\\Util",
+        "Client": "GuzzleHttp\\Client",
+        "ClientInterface": "GuzzleHttp\\ClientInterface",
+        "ServiceProvider": "Illuminate\\Support\\ServiceProvider"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "boot": {
+            "name": "boot",
+            "line": 17,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "register": {
+            "name": "register",
+            "line": 39,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

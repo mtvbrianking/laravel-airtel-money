@@ -1,0 +1,113 @@
+{
+    "name": "Bmatovu\\AirtelMoney\\Commands\\AuthCommand",
+    "line": 12,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Bmatovu\\AirtelMoney\\Commands",
+    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Commands\/AuthCommand.php",
+    "relative_file": "\/src\/Commands\/AuthCommand.php",
+    "hash": "48c26d34a80cf8305b3f57b1e49ea0aaec793316",
+    "parent": "Illuminate\\Console\\Command",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Authentication": "Bmatovu\\AirtelMoney\\Facades\\Authentication",
+        "CommandUtils": "Bmatovu\\AirtelMoney\\Traits\\CommandUtils",
+        "RequestException": "GuzzleHttp\\Exception\\RequestException",
+        "Command": "Illuminate\\Console\\Command",
+        "ConfirmableTrait": "Illuminate\\Console\\ConfirmableTrait",
+        "ResponseInterface": "Psr\\Http\\Message\\ResponseInterface"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Bmatovu\\AirtelMoney\\Traits\\CommandUtils": "Bmatovu\\AirtelMoney\\Traits\\CommandUtils",
+        "Illuminate\\Console\\ConfirmableTrait": "Illuminate\\Console\\ConfirmableTrait"
+    },
+    "properties": {
+        "signature": {
+            "name": "signature",
+            "line": 16,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "attributes": {
+                    "startLine": 16,
+                    "startTokenPos": 61,
+                    "startFilePos": 402,
+                    "endLine": 18,
+                    "endTokenPos": 61,
+                    "endFilePos": 590,
+                    "kind": 2,
+                    "rawValue": "\"airtel-money:auth\n                            {--no-write : Don't write credentials to .env file.}\n                            {--f|force : Force the operation to run when in production.}\""
+                },
+                "value": "airtel-money:auth\n                            {--no-write : Don't write credentials to .env file.}\n                            {--f|force : Force the operation to run when in production.}"
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false,
+            "is_intersection_type": false
+        },
+        "description": {
+            "name": "description",
+            "line": 20,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Scalar_String",
+                "attributes": {
+                    "startLine": 20,
+                    "startTokenPos": 70,
+                    "startFilePos": 620,
+                    "endLine": 20,
+                    "endTokenPos": 70,
+                    "endFilePos": 641,
+                    "kind": 1,
+                    "rawValue": "'Setup authentication'"
+                },
+                "value": "Setup authentication"
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false,
+            "is_intersection_type": false
+        }
+    },
+    "methods": {
+        "handle": {
+            "name": "handle",
+            "line": 22,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "int",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

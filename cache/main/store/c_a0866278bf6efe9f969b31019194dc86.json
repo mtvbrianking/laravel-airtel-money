@@ -1,0 +1,165 @@
+{
+    "name": "Bmatovu\\AirtelMoney\\Support\\Util",
+    "line": 17,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Bmatovu\\AirtelMoney\\Support",
+    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Support\/Util.php",
+    "relative_file": "\/src\/Support\/Util.php",
+    "hash": "475ef16226fbe2f76a52309ef23f79c9abf053e2",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "ClientCredentials": "Bmatovu\\AirtelMoney\\Auth\\GrantTypes\\ClientCredentials",
+        "OAuth2Middleware": "Bmatovu\\AirtelMoney\\Auth\\OAuth2Middleware",
+        "TokenRepository": "Bmatovu\\AirtelMoney\\Auth\\Repositories\\TokenRepository",
+        "Carbon": "Carbon\\Carbon",
+        "Client": "GuzzleHttp\\Client",
+        "ClientInterface": "GuzzleHttp\\ClientInterface",
+        "HandlerStack": "GuzzleHttp\\HandlerStack",
+        "MessageFormatter": "GuzzleHttp\\MessageFormatter",
+        "Middleware": "GuzzleHttp\\Middleware",
+        "Container": "Illuminate\\Container\\Container",
+        "Str": "Illuminate\\Support\\Str"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "isExpired": {
+            "name": "isExpired",
+            "line": 19,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "bool",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "expires_at": {
+                    "name": "expires_at",
+                    "line": 19,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "Bmatovu\\AirtelMoney\\Support\\DateTimeInterface|Carbon\\Carbon|string|null",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        },
+        "logMiddleware": {
+            "name": "logMiddleware",
+            "line": 40,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "\\GuzzleHttp\\HandlerStack",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "handlerStack": {
+                    "name": "handlerStack",
+                    "line": 40,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "Bmatovu\\AirtelMoney\\Support\\GuzzleHttp\\HandlerStack",
+                            false
+                        ],
+                        [
+                            "null",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "null",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        },
+        "http": {
+            "name": "http",
+            "line": 67,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "\\GuzzleHttp\\ClientInterface",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getAuthBroker": {
+            "name": "getAuthBroker",
+            "line": 91,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "\\Bmatovu\\AirtelMoney\\Auth\\OAuth2Middleware",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

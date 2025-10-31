@@ -1,0 +1,384 @@
+{
+    "name": "Bmatovu\\AirtelMoney\\Auth\\OAuth2Middleware",
+    "line": 12,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Bmatovu\\AirtelMoney\\Auth",
+    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Auth\/OAuth2Middleware.php",
+    "relative_file": "\/src\/Auth\/OAuth2Middleware.php",
+    "hash": "7c88364b7477da69788102595345c1b6177daa39",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "GrantTypeInterface": "Bmatovu\\AirtelMoney\\Auth\\GrantTypes\\GrantTypeInterface",
+        "TokenRepositoryInterface": "Bmatovu\\AirtelMoney\\Auth\\Repositories\\TokenRepositoryInterface",
+        "Util": "Bmatovu\\AirtelMoney\\Support\\Util",
+        "RejectedPromise": "GuzzleHttp\\Promise\\RejectedPromise",
+        "Model": "Illuminate\\Database\\Eloquent\\Model",
+        "RequestInterface": "Psr\\Http\\Message\\RequestInterface"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "token": {
+            "name": "token",
+            "line": 14,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Bmatovu\\AirtelMoney\\Auth\\Illuminate\\Database\\Eloquent\\Model",
+                    false
+                ],
+                [
+                    "null",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 14,
+                    "startTokenPos": 52,
+                    "startFilePos": 385,
+                    "endLine": 14,
+                    "endTokenPos": 52,
+                    "endFilePos": 388
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 14,
+                        "startTokenPos": 52,
+                        "startFilePos": 385,
+                        "endLine": 14,
+                        "endTokenPos": 52,
+                        "endFilePos": 388,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 14,
+                                "startTokenPos": 52,
+                                "startFilePos": 385,
+                                "endLine": 14,
+                                "endTokenPos": 52,
+                                "endFilePos": 388
+                            },
+                            "name": "Bmatovu\\AirtelMoney\\Auth\\null"
+                        }
+                    },
+                    "name": "null"
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false,
+            "is_intersection_type": false
+        },
+        "tokenRepository": {
+            "name": "tokenRepository",
+            "line": 16,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "\\Bmatovu\\AirtelMoney\\Auth\\Repositories\\TokenRepositoryInterface",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": null,
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false,
+            "is_intersection_type": false
+        },
+        "grantType": {
+            "name": "grantType",
+            "line": 18,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "\\Bmatovu\\AirtelMoney\\Auth\\GrantTypes\\GrantTypeInterface",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": null,
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false,
+            "is_intersection_type": false
+        },
+        "refreshTokenGrantType": {
+            "name": "refreshTokenGrantType",
+            "line": 20,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Bmatovu\\AirtelMoney\\Auth\\Bmatovu\\AirtelMoney\\Auth\\GrantTypes\\GrantTypeInterface",
+                    false
+                ],
+                [
+                    "null",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": null,
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false,
+            "is_intersection_type": false
+        }
+    },
+    "methods": {
+        "getToken": {
+            "name": "getToken",
+            "line": 22,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Bmatovu\\AirtelMoney\\Auth\\Illuminate\\Database\\Eloquent\\Model",
+                    false
+                ],
+                [
+                    "null",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "__construct": {
+            "name": "__construct",
+            "line": 39,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "grantType": {
+                    "name": "grantType",
+                    "line": 40,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Bmatovu\\AirtelMoney\\Auth\\GrantTypes\\GrantTypeInterface",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                },
+                "refreshTokenGrantType": {
+                    "name": "refreshTokenGrantType",
+                    "line": 41,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "Bmatovu\\AirtelMoney\\Auth\\Bmatovu\\AirtelMoney\\Auth\\GrantTypes\\GrantTypeInterface",
+                            false
+                        ],
+                        [
+                            "null",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "null",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                },
+                "tokenRepository": {
+                    "name": "tokenRepository",
+                    "line": 42,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "Bmatovu\\AirtelMoney\\Auth\\Bmatovu\\AirtelMoney\\Auth\\Repositories\\TokenRepositoryInterface",
+                            false
+                        ],
+                        [
+                            "null",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "null",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        },
+        "__invoke": {
+            "name": "__invoke",
+            "line": 49,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "\\Closure",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "handler": {
+                    "name": "handler",
+                    "line": 49,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "callable",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        },
+        "signRequest": {
+            "name": "signRequest",
+            "line": 100,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "\\Psr\\Http\\Message\\RequestInterface",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 100,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Psr\\Http\\Message\\RequestInterface",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                },
+                "token": {
+                    "name": "token",
+                    "line": 100,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Database\\Eloquent\\Model",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        },
+        "requestNewToken": {
+            "name": "requestNewToken",
+            "line": 107,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Model",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

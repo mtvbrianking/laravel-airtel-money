@@ -1,0 +1,54 @@
+{
+    "name": "Bmatovu\\AirtelMoney\\Facades\\Collection",
+    "line": 10,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": {
+        "see": [
+            [
+                "\\Bmatovu\\AirtelMoney\\Collection"
+            ]
+        ]
+    },
+    "namespace": "Bmatovu\\AirtelMoney\\Facades",
+    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Facades\/Collection.php",
+    "relative_file": "\/src\/Facades\/Collection.php",
+    "hash": "8ce6059c34022f3c31151742986b3e17a8275bde",
+    "parent": "Illuminate\\Support\\Facades\\Facade",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Facade": "Illuminate\\Support\\Facades\\Facade"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "getFacadeAccessor": {
+            "name": "getFacadeAccessor",
+            "line": 12,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 10,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}
