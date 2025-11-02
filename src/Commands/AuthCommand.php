@@ -2,7 +2,7 @@
 
 namespace Bmatovu\AirtelMoney\Commands;
 
-use Bmatovu\AirtelMoney\Facades\Authentication;
+use Bmatovu\AirtelMoney\Facades\Authorization;
 use Bmatovu\AirtelMoney\Traits\CommandUtils;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Console\Command;
@@ -32,7 +32,7 @@ class AuthCommand extends Command
         $this->writeConfig('client_secret');
 
         try {
-            $apiRes = Authentication::getToken();
+            $apiRes = Authorization::getToken();
 
             $this->line(json_encode($apiRes, JSON_PRETTY_PRINT));
         } catch (RequestException $ex) {

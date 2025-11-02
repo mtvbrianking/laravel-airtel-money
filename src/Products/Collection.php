@@ -1,13 +1,13 @@
 <?php
 
-namespace Bmatovu\AirtelMoney;
+namespace Bmatovu\AirtelMoney\Products;
 
 use GuzzleHttp\ClientInterface;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Config\Repository;
 use Ramsey\Uuid\Uuid;
 
-class Disbursement
+class Collection
 {
     protected ClientInterface $http;
 
@@ -24,22 +24,45 @@ class Disbursement
      *
      * @throws \GuzzleHttp\Exception\TransferException
      */
-    public function send(string $phoneNumber, float $amount, ?string $id = null, ?string $reference = null): array
+    public function receive(string $phoneNumber, float $amount, ?string $id = null, ?string $reference = null): array
     {
         $phoneNumber = substr($phoneNumber, -9);
 
-        $paymentUri = $this->config->get('airtel-money.disbursement.payment_uri');
+        $paymentUri = $this->config->get('airtel-money.collection.payment_uri');
 
         $response = $this->http->request('POST', $paymentUri, [
             'json' => [
-                'payee' => [
+                'reference' => $reference ?? 'Collection',
+                'subscriber' => [
+                    'country' => $this->config->get('airtel-money.country'),
+                    'currency' => $this->config->get('airtel-money.currency'),
                     'msisdn' => $phoneNumber,
                 ],
-                'reference' => $reference ?? 'Disbursement',
-                'pin' => $this->config->get('airtel-money.encrypted_pin'),
                 'transaction' => [
                     'amount' => $amount,
+                    'country' => $this->config->get('airtel-money.country'),
+                    'currency' => $this->config->get('airtel-money.currency'),
                     'id' => $id ?? Uuid::uuid4()->toString(),
+                ],
+            ],
+        ]);
+
+        return json_decode((string) $response->getBody(), true);
+    }
+
+    /**
+     * @return array<string, mixed>
+     *
+     * @throws \GuzzleHttp\Exception\TransferException
+     */
+    public function refund(string $airtelMoneyId): array
+    {
+        $refundUri = $this->config->get('airtel-money.collection.refund_uri');
+
+        $response = $this->http->request('POST', $refundUri, [
+            'json' => [
+                'transaction' => [
+                    'airtel_money_id' => $airtelMoneyId,
                 ],
             ],
         ]);
@@ -54,29 +77,11 @@ class Disbursement
      */
     public function getTransaction(string $transactionId): array
     {
-        $transactionUri = $this->config->get('airtel-money.disbursement.transaction_inquiry_uri');
+        $transactionUri = $this->config->get('airtel-money.collection.transaction_uri');
 
         $transactionUri = str_replace(':transactionId', $transactionId, $transactionUri);
 
         $response = $this->http->request('GET', $transactionUri);
-
-        return json_decode((string) $response->getBody(), true);
-    }
-
-    /**
-     * @return array<string, mixed>
-     *
-     * @throws \GuzzleHttp\Exception\TransferException
-     */
-    public function getUser(string $phoneNumber): array
-    {
-        $phoneNumber = substr($phoneNumber, -9);
-
-        $kycUri = $this->config->get('airtel-money.kyc_uri');
-
-        $kycUri = str_replace(':phoneNumber', $phoneNumber, $kycUri);
-
-        $response = $this->http->request('GET', $kycUri);
 
         return json_decode((string) $response->getBody(), true);
     }

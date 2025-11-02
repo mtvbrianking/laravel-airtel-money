@@ -1,12 +1,12 @@
 <?php
 
-namespace Bmatovu\AirtelMoney;
+namespace Bmatovu\AirtelMoney\Products;
 
 use GuzzleHttp\ClientInterface;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Config\Repository;
 
-class Authentication
+class Authorization
 {
     protected ClientInterface $http;
 
@@ -25,7 +25,7 @@ class Authentication
      */
     public function getToken(): array
     {
-        $authUri = $this->config->get('airtel-money.token_uri');
+        $authUri = $this->config->get('airtel-money.authorization.token_uri');
 
         $response = $this->http->request('POST', $authUri, [
             'json' => [

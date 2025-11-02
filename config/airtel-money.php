@@ -11,19 +11,27 @@ return [
 
     'base_uri' => env('AIRTEL_MONEY_BASE_URI', 'https://openapiuat.airtel.africa'),
 
-    'token_uri' => env('AIRTEL_MONEY_TOKEN_URI', '/auth/oauth2/token'),
-    'kyc_uri' => env('AIRTEL_MONEY_KYC_URI', '/standard/v1/users/:phoneNumber'),
+    'authorization' => [
+        'token_uri' => env('AIRTEL_MONEY_AUTHORIZATION_TOKEN_URI', '/auth/oauth2/token'),
+    ],
+
+    'kyc' => [
+        'user_uri' => env('AIRTEL_MONEY_KYC_USER_URI', '/standard/v1/users/:phoneNumber'),
+    ],
+
+    'account' => [
+        'balance_uri' => env('AIRTEL_MONEY_ACCOUNT_BALANCE_URI', '/standard/v1/users/balance'),
+    ],
 
     'collection' => [
         'payment_uri' => env('AIRTEL_MONEY_COLLECTION_PAYMENT_URI', '/merchant/v2/payments/'),
         'refund_uri' => env('AIRTEL_MONEY_COLLECTION_REFUND_URI', '/standard/v1/payments/refund'),
-        'transaction_inquiry_uri' => env('AIRTEL_MONEY_COLLECTION_TRANSACTION_INQUIRY_URI', '/standard/v1/payments/:transactionId'),
-        'balance_inquiry_uri' => env('AIRTEL_MONEY_COLLECTION_BALANCE_INQUIRY_URI', '/standard/v1/users/balance'),
+        'transaction_uri' => env('AIRTEL_MONEY_COLLECTION_TRANSACTION_URI', '/standard/v1/payments/:transactionId'),
     ],
 
     'disbursement' => [
         'payment_uri' => env('AIRTEL_MONEY_DISBURSEMENT_PAYMENT_URI', '/standard/v1/disbursements/'),
-        'transaction_inquiry_uri' => env('AIRTEL_MONEY_DISBURSEMENT_TRANSACTION_INQUIRY_URI', '/standard/v1/disbursements/:transactionId'),
+        'transaction_uri' => env('AIRTEL_MONEY_DISBURSEMENT_TRANSACTION_URI', '/standard/v1/disbursements/:transactionId'),
     ],
 
     /*

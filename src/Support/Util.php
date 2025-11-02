@@ -104,7 +104,7 @@ class Util
         $config = [
             'client_id' => $config->get('airtel-money.client_id'),
             'client_secret' => $config->get('airtel-money.client_secret'),
-            'token_uri' => $config->get('airtel-money.token_uri'),
+            'token_uri' => $config->get('airtel-money.authorization.token_uri'),
         ];
 
         $clientCredGrant = new ClientCredentials($client, $config);

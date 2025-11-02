@@ -1,8 +1,9 @@
 <?php
 
-namespace Bmatovu\AirtelMoney\Tests;
+namespace Bmatovu\AirtelMoney\Tests\Products;
 
-use Bmatovu\AirtelMoney\Disbursement;
+use Bmatovu\AirtelMoney\Products\Disbursement;
+use Bmatovu\AirtelMoney\Tests\TestCase;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
@@ -70,39 +71,5 @@ class DisbursementTest extends TestCase
         $apiRes = $disbursement->getTransaction('ba1451ae-d96a-4393-b46c-b2a26cff71a3');
 
         $this->assertEquals($apiRes, $resBody);
-    }
-
-    public function test_can_get_user(): void
-    {
-        $resBody = [
-            'data' => [
-                'is_barred' => false,
-                'grade' => 'MCOM',
-                'last_name' => 'JOHN',
-                'registration' => [
-                    'status' => 'MCOM',
-                ],
-                'msisdn' => '700123123',
-                'first_name' => 'DOE',
-                'is_pin_set' => true,
-            ],
-            'status' => [
-                'response_code' => 'DP02200000001',
-                'code' => '200',
-                'success' => true,
-                'result_code' => 'ESB000010',
-                'message' => 'SUCCESS',
-            ],
-        ];
-
-        $response = new Response(200, [], json_encode($resBody));
-
-        $mockClient = $this->mockGuzzleClient($response);
-
-        $disbursement = new Disbursement($mockClient);
-
-        $user = $disbursement->getUser('700123123');
-
-        $this->assertEquals($user, $resBody);
     }
 }

@@ -71,9 +71,11 @@
                 "Bmatovu\\AirtelMoney\\AirtelMoneyServiceProvider"
             ],
             "aliases": {
-                "Authentication": "Bmatovu\\AirtelMoney\\Facades\\Authentication",
+                "Kyc": "Bmatovu\\AirtelMoney\\Facades\\Kyc",
+                "Account": "Bmatovu\\AirtelMoney\\Facades\\Account",
                 "Collection": "Bmatovu\\AirtelMoney\\Facades\\Collection",
-                "Disbursement": "Bmatovu\\AirtelMoney\\Facades\\Disbursement"
+                "Disbursement": "Bmatovu\\AirtelMoney\\Facades\\Disbursement",
+                "Authorization": "Bmatovu\\AirtelMoney\\Facades\\Authorization"
             }
         }
     },

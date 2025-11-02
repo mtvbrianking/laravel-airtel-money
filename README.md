@@ -10,7 +10,7 @@
 
 To get started with your Airtel Money integration:
 
-1. [**Register your application**](https://developers.airtel.africa/user/signup) on the Airtel Money Developer Portal.
+1. [**Register your application**](https://developers.airtel.africa/developer) on the Airtel Money Developer Portal.
 
 2. **Add products to your application**: APIs are grouped into products.  
    - Start with: _Account, KYC, Collection-APIs, and Disbursement-APIs_.
@@ -26,7 +26,7 @@ To get started with your Airtel Money integration:
 5. **Set disbursement PIN**: optional for collections.
 
 6. **Set collection callback**: you can set an endpoint to where your callbacks should be set.
-   Optionally, you can enable authentication for it.
+   Optionally, you can enable Authorization for it.
 
 **Statuses**
 
@@ -46,7 +46,7 @@ _New Applications will have the default `NA` status._
 | [Collection APIs](https://developers.airtel.africa/documentation/collection-apis/2.0) | Payments (USSD Push) | Request a payment. User enters PIN to approve the transaction. |
 | | Refund | Refund a previous collection transaction (partial or full) |
 | | Callback (No Auth) | Sent to your callback URL upon transaction completion |
-| | Callback (With Auth) | Sent to your callback URL with authentication (must be enabled first) |
+| | Callback (With Auth) | Sent to your callback URL with Authorization (must be enabled first) |
 | | Transaction Inquiry | Check collection transaction details |
 | [Disbursement APIs](https://developers.airtel.africa/documentation/collection-apis/2.0) | Payments | Send money to an Airtel number. Requires your PIN and prior PIN setup |
 | | Transaction Inquiry | Check disbursement transaction details |
@@ -73,7 +73,7 @@ php artisan vendor:publish --provider="Bmatovu\AirtelMoney\AirtelMoneyServicePro
 php artisan migrate
 ```
 
-### Authentication & PIN
+### Authorization & PIN
 
 **Set Credentials**
 
@@ -91,36 +91,46 @@ php artisan airtel-money:pin
 
 ### Usage
 
-**Authentication**
+[**Authorization**](https://developers.airtel.africa/documentation/authorization/1.0)
 
 ```php
-use Bmatovu\AirtelMoney\Facades\Authentication;
+use Bmatovu\AirtelMoney\Facades\Authorization;
 
-$token = Authentication::getToken();
+$token = Authorization::getToken();
 ```
 
-**Collections**
+[**KYC**](https://developers.airtel.africa/documentation/kyc/1.0)
+
+```php
+use Bmatovu\AirtelMoney\Facades\Kyc;
+
+$user = Kyc::getUser($phoneNumber);
+```
+
+[**Collection**](https://developers.airtel.africa/documentation/collection-apis/2.0)
 
 ```php
 use Bmatovu\AirtelMoney\Facades\Collection;
-
-$user        = Collection::getUser($phoneNumber);
 
 $transaction = Collection::receive($phoneNumber, $amount);
 
 $transaction = Collection::refund($airtelMoneyId);
 
 $transaction = Collection::getTransaction($transactionId);
-
-$balance     = Collection::getBalance();
 ```
 
-**Disbursement**
+[**Account**](https://developers.airtel.africa/documentation/account/1.0)
+
+```php
+use Bmatovu\AirtelMoney\Facades\Account;
+
+$balance = Account::getBalance();
+```
+
+[**Disbursement**](https://developers.airtel.africa/documentation/collection-apis/2.0)
 
 ```php
 use Bmatovu\AirtelMoney\Facades\Disbursement;
-
-$user        = Disbursement::getUser($phoneNumber);
 
 $transaction = Disbursement::send($phoneNumber, $amount);
 

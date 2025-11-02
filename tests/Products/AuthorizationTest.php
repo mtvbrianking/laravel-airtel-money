@@ -1,12 +1,13 @@
 <?php
 
-namespace Bmatovu\AirtelMoney\Tests;
+namespace Bmatovu\AirtelMoney\Tests\Products;
 
-use Bmatovu\AirtelMoney\Authentication;
+use Bmatovu\AirtelMoney\Products\Authorization;
+use Bmatovu\AirtelMoney\Tests\TestCase;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class AuthenticationTest extends TestCase
+class AuthorizationTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -22,9 +23,9 @@ class AuthenticationTest extends TestCase
 
         $mockClient = $this->mockGuzzleClient($response);
 
-        $authentication = new Authentication($mockClient);
+        $authorization = new Authorization($mockClient);
 
-        $apiRes = $authentication->getToken();
+        $apiRes = $authorization->getToken();
 
         $this->assertEquals($apiRes, $resBody);
     }

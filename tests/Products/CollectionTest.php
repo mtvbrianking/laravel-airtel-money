@@ -1,8 +1,9 @@
 <?php
 
-namespace Bmatovu\AirtelMoney\Tests;
+namespace Bmatovu\AirtelMoney\Tests\Products;
 
-use Bmatovu\AirtelMoney\Collection;
+use Bmatovu\AirtelMoney\Products\Collection;
+use Bmatovu\AirtelMoney\Tests\TestCase;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
@@ -95,68 +96,6 @@ class CollectionTest extends TestCase
         $collection = new Collection($mockClient);
 
         $apiRes = $collection->refund('133410367531');
-
-        $this->assertEquals($apiRes, $resBody);
-    }
-
-    public function test_can_get_balance(): void
-    {
-        $resBody = [
-            'data' => [
-                'balance' => '230486.65',
-                'currency' => 'UGX',
-                'account_status' => 'Active',
-            ],
-            'status' => [
-                'response_code' => 'DP02100000001',
-                'code' => '200',
-                'success' => true,
-                'result_code' => 'ESB000010',
-                'message' => 'SUCCESS',
-            ],
-        ];
-
-        $response = new Response(200, [], json_encode($resBody));
-
-        $mockClient = $this->mockGuzzleClient($response);
-
-        $collection = new Collection($mockClient);
-
-        $apiRes = $collection->getBalance();
-
-        $this->assertEquals($apiRes, $resBody);
-    }
-
-    public function test_can_get_user(): void
-    {
-        $resBody = [
-            'data' => [
-                'is_barred' => false,
-                'grade' => 'MCOM',
-                'last_name' => 'JOHN',
-                'registration' => [
-                    'status' => 'MCOM',
-                ],
-                'msisdn' => '700123123',
-                'first_name' => 'DOE',
-                'is_pin_set' => true,
-            ],
-            'status' => [
-                'response_code' => 'DP02200000001',
-                'code' => '200',
-                'success' => true,
-                'result_code' => 'ESB000010',
-                'message' => 'SUCCESS',
-            ],
-        ];
-
-        $response = new Response(200, [], json_encode($resBody));
-
-        $mockClient = $this->mockGuzzleClient($response);
-
-        $collection = new Collection($mockClient);
-
-        $apiRes = $collection->getUser('700123123');
 
         $this->assertEquals($apiRes, $resBody);
     }

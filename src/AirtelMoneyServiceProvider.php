@@ -4,6 +4,11 @@ namespace Bmatovu\AirtelMoney;
 
 use Bmatovu\AirtelMoney\Commands\AuthCommand;
 use Bmatovu\AirtelMoney\Commands\PinCommand;
+use Bmatovu\AirtelMoney\Products\Account;
+use Bmatovu\AirtelMoney\Products\Authorization;
+use Bmatovu\AirtelMoney\Products\Collection;
+use Bmatovu\AirtelMoney\Products\Disbursement;
+use Bmatovu\AirtelMoney\Products\Kyc;
 use Bmatovu\AirtelMoney\Support\Util;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -40,7 +45,7 @@ class AirtelMoneyServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/airtel-money.php', 'airtel-money');
 
-        $this->app->when(Authentication::class)
+        $this->app->when(Authorization::class)
             ->needs(ClientInterface::class)
             ->give(function () {
                 return new Client([
@@ -52,7 +57,7 @@ class AirtelMoneyServiceProvider extends ServiceProvider
                 ]);
             });
 
-        $this->app->when([Collection::class, Disbursement::class])
+        $this->app->when([Kyc::class, Account::class, Collection::class, Disbursement::class])
             ->needs(ClientInterface::class)
             ->give(function () {
                 return Util::http();

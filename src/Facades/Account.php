@@ -5,12 +5,12 @@ namespace Bmatovu\AirtelMoney\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Bmatovu\AirtelMoney\Products\Disbursement
+ * @see \Bmatovu\AirtelMoney\Products\Account
  */
-class Disbursement extends Facade
+class Account extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return \Bmatovu\AirtelMoney\Products\Disbursement::class;
+        return \Bmatovu\AirtelMoney\Products\Account::class;
     }
 }

@@ -5,12 +5,12 @@ namespace Bmatovu\AirtelMoney\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Bmatovu\AirtelMoney\Authentication
+ * @see \Bmatovu\AirtelMoney\Products\Authorization
  */
-class Authentication extends Facade
+class Authorization extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return \Bmatovu\AirtelMoney\Authentication::class;
+        return \Bmatovu\AirtelMoney\Products\Authorization::class;
     }
 }
