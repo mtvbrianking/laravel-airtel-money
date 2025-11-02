@@ -1,5 +1,5 @@
 {
-    "name": "Bmatovu\\AirtelMoney\\Facades\\Collection",
+    "name": "Bmatovu\\AirtelMoney\\Facades\\Authorization",
     "line": 10,
     "short_desc": "",
     "long_desc": "",
@@ -7,14 +7,14 @@
     "tags": {
         "see": [
             [
-                "\\Bmatovu\\AirtelMoney\\Products\\Collection"
+                "\\Bmatovu\\AirtelMoney\\Products\\Authorization"
             ]
         ]
     },
     "namespace": "Bmatovu\\AirtelMoney\\Facades",
-    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Facades\/Collection.php",
-    "relative_file": "\/src\/Facades\/Collection.php",
-    "hash": "96c24cd5d3052f7703341174b087f077bd78093c",
+    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Facades\/Authorization.php",
+    "relative_file": "\/src\/Facades\/Authorization.php",
+    "hash": "e1f3c9dd0c566fa5cd7f2de3bcd41b31ae190a2d",
     "parent": "Illuminate\\Support\\Facades\\Facade",
     "modifiers": 0,
     "is_trait": false,

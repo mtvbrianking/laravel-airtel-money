@@ -1,5 +1,5 @@
 {
-    "name": "Bmatovu\\AirtelMoney\\Facades\\Collection",
+    "name": "Bmatovu\\AirtelMoney\\Facades\\Kyc",
     "line": 10,
     "short_desc": "",
     "long_desc": "",
@@ -7,14 +7,14 @@
     "tags": {
         "see": [
             [
-                "\\Bmatovu\\AirtelMoney\\Products\\Collection"
+                "\\Bmatovu\\AirtelMoney\\Products\\Kyc"
             ]
         ]
     },
     "namespace": "Bmatovu\\AirtelMoney\\Facades",
-    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Facades\/Collection.php",
-    "relative_file": "\/src\/Facades\/Collection.php",
-    "hash": "96c24cd5d3052f7703341174b087f077bd78093c",
+    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Facades\/Kyc.php",
+    "relative_file": "\/src\/Facades\/Kyc.php",
+    "hash": "84d4555cd00a0dae72aaa0e22b3e3755ad1c4887",
     "parent": "Illuminate\\Support\\Facades\\Facade",
     "modifiers": 0,
     "is_trait": false,

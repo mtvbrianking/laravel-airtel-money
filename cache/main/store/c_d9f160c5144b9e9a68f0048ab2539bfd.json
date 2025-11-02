@@ -8,14 +8,14 @@
     "namespace": "Bmatovu\\AirtelMoney\\Commands",
     "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Commands\/AuthCommand.php",
     "relative_file": "\/src\/Commands\/AuthCommand.php",
-    "hash": "48c26d34a80cf8305b3f57b1e49ea0aaec793316",
+    "hash": "538c4bfea7a6c5fd7fbaaee0e4e80ec6941cabf3",
     "parent": "Illuminate\\Console\\Command",
     "modifiers": 0,
     "is_trait": false,
     "is_interface": false,
     "is_read_only": false,
     "aliases": {
-        "Authentication": "Bmatovu\\AirtelMoney\\Facades\\Authentication",
+        "Authorization": "Bmatovu\\AirtelMoney\\Facades\\Authorization",
         "CommandUtils": "Bmatovu\\AirtelMoney\\Traits\\CommandUtils",
         "RequestException": "GuzzleHttp\\Exception\\RequestException",
         "Command": "Illuminate\\Console\\Command",
@@ -43,10 +43,10 @@
                 "attributes": {
                     "startLine": 16,
                     "startTokenPos": 61,
-                    "startFilePos": 402,
+                    "startFilePos": 401,
                     "endLine": 18,
                     "endTokenPos": 61,
-                    "endFilePos": 590,
+                    "endFilePos": 589,
                     "kind": 2,
                     "rawValue": "\"airtel-money:auth\n                            {--no-write : Don't write credentials to .env file.}\n                            {--f|force : Force the operation to run when in production.}\""
                 },
@@ -71,10 +71,10 @@
                 "attributes": {
                     "startLine": 20,
                     "startTokenPos": 70,
-                    "startFilePos": 620,
+                    "startFilePos": 619,
                     "endLine": 20,
                     "endTokenPos": 70,
-                    "endFilePos": 641,
+                    "endFilePos": 640,
                     "kind": 1,
                     "rawValue": "'Setup authentication'"
                 },

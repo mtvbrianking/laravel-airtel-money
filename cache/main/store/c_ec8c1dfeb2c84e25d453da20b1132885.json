@@ -1,14 +1,14 @@
 {
-    "name": "Bmatovu\\AirtelMoney\\Authentication",
+    "name": "Bmatovu\\AirtelMoney\\Products\\Account",
     "line": 9,
     "short_desc": null,
     "long_desc": null,
     "hint": null,
     "tags": [],
-    "namespace": "Bmatovu\\AirtelMoney",
-    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Authentication.php",
-    "relative_file": "\/src\/Authentication.php",
-    "hash": "6d016a399bc192207f32f049016a69644a83d016",
+    "namespace": "Bmatovu\\AirtelMoney\\Products",
+    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Products\/Account.php",
+    "relative_file": "\/src\/Products\/Account.php",
+    "hash": "08fa8da46f6fe768438044c80922d2e3eb64d8e6",
     "parent": null,
     "modifiers": 0,
     "is_trait": false,
@@ -101,8 +101,8 @@
                 }
             }
         },
-        "getToken": {
-            "name": "getToken",
+        "getBalance": {
+            "name": "getBalance",
             "line": 26,
             "short_desc": "",
             "long_desc": "",

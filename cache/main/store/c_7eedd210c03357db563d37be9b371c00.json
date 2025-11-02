@@ -1,6 +1,6 @@
 {
     "name": "Bmatovu\\AirtelMoney\\AirtelMoneyServiceProvider",
-    "line": 12,
+    "line": 17,
     "short_desc": null,
     "long_desc": null,
     "hint": null,
@@ -8,7 +8,7 @@
     "namespace": "Bmatovu\\AirtelMoney",
     "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/AirtelMoneyServiceProvider.php",
     "relative_file": "\/src\/AirtelMoneyServiceProvider.php",
-    "hash": "11f8cbf7222a4b0492a8bdb89f8f8c20a1d24986",
+    "hash": "bbe1f7a0eb213f2dbc6a69d03a4f4c82810efc25",
     "parent": "Illuminate\\Support\\ServiceProvider",
     "modifiers": 0,
     "is_trait": false,
@@ -17,6 +17,11 @@
     "aliases": {
         "AuthCommand": "Bmatovu\\AirtelMoney\\Commands\\AuthCommand",
         "PinCommand": "Bmatovu\\AirtelMoney\\Commands\\PinCommand",
+        "Account": "Bmatovu\\AirtelMoney\\Products\\Account",
+        "Authorization": "Bmatovu\\AirtelMoney\\Products\\Authorization",
+        "Collection": "Bmatovu\\AirtelMoney\\Products\\Collection",
+        "Disbursement": "Bmatovu\\AirtelMoney\\Products\\Disbursement",
+        "Kyc": "Bmatovu\\AirtelMoney\\Products\\Kyc",
         "Util": "Bmatovu\\AirtelMoney\\Support\\Util",
         "Client": "GuzzleHttp\\Client",
         "ClientInterface": "GuzzleHttp\\ClientInterface",
@@ -29,7 +34,7 @@
     "methods": {
         "boot": {
             "name": "boot",
-            "line": 17,
+            "line": 22,
             "short_desc": "",
             "long_desc": "",
             "hint": [
@@ -50,7 +55,7 @@
         },
         "register": {
             "name": "register",
-            "line": 39,
+            "line": 44,
             "short_desc": null,
             "long_desc": null,
             "hint": null,

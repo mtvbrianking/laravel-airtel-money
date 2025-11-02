@@ -7,14 +7,14 @@
     "tags": {
         "see": [
             [
-                "\\Bmatovu\\AirtelMoney\\Disbursement"
+                "\\Bmatovu\\AirtelMoney\\Products\\Disbursement"
             ]
         ]
     },
     "namespace": "Bmatovu\\AirtelMoney\\Facades",
     "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Facades\/Disbursement.php",
     "relative_file": "\/src\/Facades\/Disbursement.php",
-    "hash": "a2a75bfee8ceb592f52c2b54a4de0d0003fa1590",
+    "hash": "577a8df0a3dd331a26a0ec2f071e8c1ec8f42034",
     "parent": "Illuminate\\Support\\Facades\\Facade",
     "modifiers": 0,
     "is_trait": false,
