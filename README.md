@@ -8,13 +8,17 @@
 
 ### Prerequisites
 
-You will need the following to get started with your integration:
+To get started with your Airtel Money integration:
 
-1. Create an `application` on the [Airtel Money Developer Portal](https://developers.airtel.africa/user/signup).
+1. Create an **Application** on the Airtel Money Developer Portal:  
+   https://developers.airtel.africa/user/signup
 
-2. Write to the **Airtel Money Support Team** to get your application approved, [here](https://developers.airtel.africa/user/support).
+2. Request application approval from the **Airtel Money Support Team**:  
+   https://developers.airtel.africa/user/support  
 
-_**Note:** Your application will not work until it’s approved. You can confirm your app's status in the portal._
+3. Register your **source IP addresses** in the developer portal to avoid failed transaction requests.
+
+**Note:** Your application will only work after approval. You can monitor its status in the portal.
 
 | Status             | Meaning           |
 |:-------------------|:------------------|
