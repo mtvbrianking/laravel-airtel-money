@@ -6,27 +6,54 @@
 [![Tests](https://github.com/mtvbrianking/laravel-airtel-money/workflows/run-tests/badge.svg)](https://github.com/mtvbrianking/laravel-airtel-money/actions?query=workflow:run-tests)
 [![Documentation](https://github.com/mtvbrianking/laravel-airtel-money/workflows/gen-docs/badge.svg)](https://mtvbrianking.github.io/laravel-airtel-money/main)
 
-### Prerequisites
+### Getting Started
 
 To get started with your Airtel Money integration:
 
-1. Create an **Application** on the Airtel Money Developer Portal:  
-   https://developers.airtel.africa/user/signup
+1. [**Register your application**](https://developers.airtel.africa/user/signup) on the Airtel Money Developer Portal.
 
-2. Request application approval from the **Airtel Money Support Team**:  
-   https://developers.airtel.africa/user/support  
+2. **Add products to your application**: APIs are grouped into products.  
+   - Start with: _Account, KYC, Collection-APIs, and Disbursement-APIs_.
+   - Each product may have specific KYC/compliance requirements, which the Airtel Money team will advise during onboarding.
 
-3. Register your **source IP addresses** in the developer portal to avoid failed transaction requests.
+3. [**Request application approval**](https://developers.airtel.africa/user/support) from the Airtel Money Support Team.  
+   - Your application will only work after it has been approved.
+   - You can monitor the approval status in the developer portal.
 
-**Note:** Your application will only work after approval. You can monitor its status in the portal.
+4. **Whitelist your source IPs** in the developer portal under `Settings -> Security -> Server IP Allowed List`.  
+   - Any collection or disbursement request originating from a non-whitelisted source IP **will be declined** at Airtel Money.
 
-| Status             | Meaning           |
-|:-------------------|:------------------|
-| NA                 | Not Approved      |
-| Partially Approved | Approved for UAT  |
-| Approved           | Approved for PROD |
+5. **Set disbursement PIN**: optional for collections.
 
-### Getting Started
+6. **Set collection callback**: you can set an endpoint to where your callbacks should be set.
+   Optionally, you can enable authentication for it.
+
+**Statuses**
+
+| Mode (Env) | Required Status    |
+| :--------- |:-------------------|
+| TEST       | Partially Approved |
+| PRODUCTION | Approved           |
+
+_New Applications will have the default `NA` status._
+
+**Products**
+
+| Product | Functionality | Comment |
+|:--------|:--------------|:--------|
+| [KYC](https://developers.airtel.africa/documentation/kyc/1.0) | User Inquiry | Get user basic information like first and last name |
+| [Account](https://developers.airtel.africa/documentation/account/1.0) | Balance Inquiry | Collection wallet balance check |
+| [Collection APIs](https://developers.airtel.africa/documentation/collection-apis/2.0) | Payments (USSD Push) | Request a payment. User enters PIN to approve the transaction. |
+| | Refund | Refund a previous collection transaction (partial or full) |
+| | Callback (No Auth) | Sent to your callback URL upon transaction completion |
+| | Callback (With Auth) | Sent to your callback URL with authentication (must be enabled first) |
+| | Transaction Inquiry | Check collection transaction details |
+| [Disbursement APIs](https://developers.airtel.africa/documentation/collection-apis/2.0) | Payments | Send money to an Airtel number. Requires your PIN and prior PIN setup |
+| | Transaction Inquiry | Check disbursement transaction details |
+
+_The disbursement wallet has no dedicated balance-inquiry API; its running balance is returned with each transaction response._
+
+### Integration
 
 **Installation**
 
@@ -77,6 +104,8 @@ $token = Authentication::getToken();
 ```php
 use Bmatovu\AirtelMoney\Facades\Collection;
 
+$user        = Collection::getUser($phoneNumber);
+
 $transaction = Collection::receive($phoneNumber, $amount);
 
 $transaction = Collection::refund($airtelMoneyId);
@@ -84,8 +113,6 @@ $transaction = Collection::refund($airtelMoneyId);
 $transaction = Collection::getTransaction($transactionId);
 
 $balance     = Collection::getBalance();
-
-$user        = Collection::getUser($phoneNumber);
 ```
 
 **Disbursement**
@@ -93,11 +120,11 @@ $user        = Collection::getUser($phoneNumber);
 ```php
 use Bmatovu\AirtelMoney\Facades\Disbursement;
 
+$user        = Disbursement::getUser($phoneNumber);
+
 $transaction = Disbursement::send($phoneNumber, $amount);
 
 $transaction = Disbursement::getTransaction($transactionId);
-
-$user        = Disbursement::getUser($phoneNumber);
 ```
 
 ### Testing
