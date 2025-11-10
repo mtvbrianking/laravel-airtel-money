@@ -1,0 +1,337 @@
+{
+    "name": "Bmatovu\\AirtelMoney\\Support\\GuzzleHttpLogMiddleware",
+    "line": 16,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Bmatovu\\AirtelMoney\\Support",
+    "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Support\/GuzzleHttpLogMiddleware.php",
+    "relative_file": "\/src\/Support\/GuzzleHttpLogMiddleware.php",
+    "hash": "b4b56dce64159348114a43c355596174c48666c4",
+    "parent": null,
+    "modifiers": 32,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Container": "Illuminate\\Container\\Container",
+        "Repository": "Illuminate\\Contracts\\Config\\Repository",
+        "Str": "Illuminate\\Support\\Str",
+        "RequestInterface": "Psr\\Http\\Message\\RequestInterface",
+        "ResponseInterface": "Psr\\Http\\Message\\ResponseInterface",
+        "UriInterface": "Psr\\Http\\Message\\UriInterface",
+        "LoggerInterface": "Psr\\Log\\LoggerInterface",
+        "Response": "Symfony\\Component\\HttpFoundation\\Response"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "__construct": {
+            "name": "__construct",
+            "line": 32,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "useLogger": {
+            "name": "useLogger",
+            "line": 51,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Bmatovu\\AirtelMoney\\Support\\GuzzleHttpLogMiddleware",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "logger": {
+                    "name": "logger",
+                    "line": 51,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Psr\\Log\\LoggerInterface",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        },
+        "usemask": {
+            "name": "usemask",
+            "line": 58,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Bmatovu\\AirtelMoney\\Support\\GuzzleHttpLogMiddleware",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "mask": {
+                    "name": "mask",
+                    "line": 58,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        },
+        "useOnly": {
+            "name": "useOnly",
+            "line": 65,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Bmatovu\\AirtelMoney\\Support\\GuzzleHttpLogMiddleware",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "only": {
+                    "name": "only",
+                    "line": 65,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        },
+        "useHide": {
+            "name": "useHide",
+            "line": 72,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Bmatovu\\AirtelMoney\\Support\\GuzzleHttpLogMiddleware",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "hide": {
+                    "name": "hide",
+                    "line": 72,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        },
+        "useSkip": {
+            "name": "useSkip",
+            "line": 79,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Bmatovu\\AirtelMoney\\Support\\GuzzleHttpLogMiddleware",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "skip": {
+                    "name": "skip",
+                    "line": 79,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        },
+        "useSize": {
+            "name": "useSize",
+            "line": 86,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Bmatovu\\AirtelMoney\\Support\\GuzzleHttpLogMiddleware",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "length": {
+                    "name": "length",
+                    "line": 86,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        },
+        "__invoke": {
+            "name": "__invoke",
+            "line": 95,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "callable",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "is_intersection_type": false,
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "handler": {
+                    "name": "handler",
+                    "line": 95,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "callable",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false,
+                    "is_intersection_type": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

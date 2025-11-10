@@ -1,6 +1,6 @@
 {
     "name": "Bmatovu\\AirtelMoney\\AirtelMoneyServiceProvider",
-    "line": 17,
+    "line": 19,
     "short_desc": null,
     "long_desc": null,
     "hint": null,
@@ -8,7 +8,7 @@
     "namespace": "Bmatovu\\AirtelMoney",
     "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/AirtelMoneyServiceProvider.php",
     "relative_file": "\/src\/AirtelMoneyServiceProvider.php",
-    "hash": "bbe1f7a0eb213f2dbc6a69d03a4f4c82810efc25",
+    "hash": "b6bc7c132a63210924f79d4923027d8297f694b5",
     "parent": "Illuminate\\Support\\ServiceProvider",
     "modifiers": 0,
     "is_trait": false,
@@ -22,9 +22,11 @@
         "Collection": "Bmatovu\\AirtelMoney\\Products\\Collection",
         "Disbursement": "Bmatovu\\AirtelMoney\\Products\\Disbursement",
         "Kyc": "Bmatovu\\AirtelMoney\\Products\\Kyc",
+        "GuzzleHttpLogMiddleware": "Bmatovu\\AirtelMoney\\Support\\GuzzleHttpLogMiddleware",
         "Util": "Bmatovu\\AirtelMoney\\Support\\Util",
         "Client": "GuzzleHttp\\Client",
         "ClientInterface": "GuzzleHttp\\ClientInterface",
+        "HandlerStack": "GuzzleHttp\\HandlerStack",
         "ServiceProvider": "Illuminate\\Support\\ServiceProvider"
     },
     "errors": [],
@@ -34,7 +36,7 @@
     "methods": {
         "boot": {
             "name": "boot",
-            "line": 22,
+            "line": 24,
             "short_desc": "",
             "long_desc": "",
             "hint": [
@@ -55,7 +57,7 @@
         },
         "register": {
             "name": "register",
-            "line": 44,
+            "line": 46,
             "short_desc": null,
             "long_desc": null,
             "hint": null,

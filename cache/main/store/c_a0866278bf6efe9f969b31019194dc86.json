@@ -1,6 +1,6 @@
 {
     "name": "Bmatovu\\AirtelMoney\\Support\\Util",
-    "line": 17,
+    "line": 14,
     "short_desc": null,
     "long_desc": null,
     "hint": null,
@@ -8,7 +8,7 @@
     "namespace": "Bmatovu\\AirtelMoney\\Support",
     "file": "\/home\/runner\/work\/laravel-airtel-money\/laravel-airtel-money\/src\/Support\/Util.php",
     "relative_file": "\/src\/Support\/Util.php",
-    "hash": "461d56960d36856fe2e9ee649bb27df5a03862a9",
+    "hash": "a8ae33747fb79a624c379e72d2247142255bc221",
     "parent": null,
     "modifiers": 0,
     "is_trait": false,
@@ -22,10 +22,7 @@
         "Client": "GuzzleHttp\\Client",
         "ClientInterface": "GuzzleHttp\\ClientInterface",
         "HandlerStack": "GuzzleHttp\\HandlerStack",
-        "MessageFormatter": "GuzzleHttp\\MessageFormatter",
-        "Middleware": "GuzzleHttp\\Middleware",
-        "Container": "Illuminate\\Container\\Container",
-        "Str": "Illuminate\\Support\\Str"
+        "Container": "Illuminate\\Container\\Container"
     },
     "errors": [],
     "interfaces": [],
@@ -34,7 +31,7 @@
     "methods": {
         "isExpired": {
             "name": "isExpired",
-            "line": 19,
+            "line": 16,
             "short_desc": null,
             "long_desc": null,
             "hint": [
@@ -54,7 +51,7 @@
             "parameters": {
                 "expires_at": {
                     "name": "expires_at",
-                    "line": 19,
+                    "line": 16,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -73,54 +70,9 @@
                 }
             }
         },
-        "logMiddleware": {
-            "name": "logMiddleware",
-            "line": 40,
-            "short_desc": null,
-            "long_desc": null,
-            "hint": [
-                [
-                    "\\GuzzleHttp\\HandlerStack",
-                    false
-                ]
-            ],
-            "hint_desc": null,
-            "tags": [],
-            "see": [],
-            "modifiers": 9,
-            "is_by_ref": "",
-            "is_intersection_type": false,
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "handlerStack": {
-                    "name": "handlerStack",
-                    "line": 40,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "Bmatovu\\AirtelMoney\\Support\\GuzzleHttp\\HandlerStack",
-                            false
-                        ],
-                        [
-                            "null",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": "null",
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false,
-                    "is_intersection_type": false
-                }
-            }
-        },
         "http": {
             "name": "http",
-            "line": 67,
+            "line": 37,
             "short_desc": null,
             "long_desc": null,
             "hint": [
@@ -141,7 +93,7 @@
         },
         "getAuthBroker": {
             "name": "getAuthBroker",
-            "line": 91,
+            "line": 61,
             "short_desc": null,
             "long_desc": null,
             "hint": [
