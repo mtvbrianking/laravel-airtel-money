@@ -9,10 +9,7 @@ use Carbon\Carbon;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\HandlerStack;
-use GuzzleHttp\MessageFormatter;
-use GuzzleHttp\Middleware;
 use Illuminate\Container\Container;
-use Illuminate\Support\Str;
 
 class Util
 {
@@ -37,40 +34,13 @@ class Util
         return $now > $expires_at;
     }
 
-    public static function logMiddleware(?HandlerStack $handlerStack = null): HandlerStack
-    {
-        $handlerStack = $handlerStack ?? HandlerStack::create();
-
-        $id = $_SERVER['REQUEST_ID'] ?? Str::random(10);
-
-        $messageFormats = [
-            "HTTP_OUT_{$id} [Request] {method} {target}" => 'info',
-            "HTTP_OUT_{$id} [Request] [Headers] \n{req_headers}" => 'debug',
-            "HTTP_OUT_{$id} [Request] [Body] {req_body}" => 'debug',
-            "HTTP_OUT_{$id} [Response] HTTP/{version} {code} {phrase} Size: {res_header_Content-Length}" => 'info',
-            "HTTP_OUT_{$id} [Response] [Headers] \n{res_headers}" => 'debug',
-            "HTTP_OUT_{$id} [Response] [Body] {res_body}" => 'debug',
-            // "HTTP_OUT_{$id} [Error] {error}" => 'error',
-        ];
-
-        $logger = Container::getInstance()->get('log');
-
-        foreach ($messageFormats as $format => $level) {
-            $messageFormatter = new MessageFormatter($format);
-            $logMiddleware = Middleware::log($logger, $messageFormatter, $level);
-            $handlerStack->unshift($logMiddleware);
-        }
-
-        return $handlerStack;
-    }
-
     public static function http(): ClientInterface
     {
         $config = Container::getInstance()->make('config');
 
         $handlerStack = HandlerStack::create();
 
-        $handlerStack = Util::logMiddleware($handlerStack);
+        $handlerStack->push(new GuzzleHttpLogMiddleware);
 
         $handlerStack->unshift(self::getAuthBroker());
 
@@ -92,7 +62,9 @@ class Util
     {
         $config = Container::getInstance()->make('config');
 
-        $handlerStack = Util::logMiddleware();
+        $handlerStack = HandlerStack::create();
+
+        $handlerStack->push(new GuzzleHttpLogMiddleware);
 
         $options = array_merge([
             'base_uri' => $config->get('airtel-money.base_uri'),
