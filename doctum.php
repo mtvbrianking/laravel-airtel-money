@@ -22,14 +22,14 @@ $versions = GitVersionCollection::create($dir)
     ->add('main', 'main');
 
 $repo = new GitHubRemoteRepository(
-    'mtvbrianking/laravel-airtel-mobile-money',
+    'mtvbrianking/laravel-airtel-money',
     dirname($dir),
     'https://github.com/'
 );
 
 $options = [
     'theme' => 'default',
-    'title' => 'Laravel Airtel Mobile Money',
+    'title' => 'Laravel Airtel Money',
     'versions' => $versions,
     'build_dir' => __DIR__.'/docs/%version%',
     'cache_dir' => __DIR__.'/docs/cache/%version%',
