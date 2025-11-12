@@ -55,7 +55,7 @@ final class GuzzleHttpLogMiddleware
         return $this;
     }
 
-    public function usemask(array $mask): self
+    public function useMask(array $mask): self
     {
         $this->mask = array_map('strtolower', $mask);
 

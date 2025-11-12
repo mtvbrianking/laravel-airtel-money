@@ -23,9 +23,11 @@
         "illuminate/contracts": "^10.0|^11.0|^12.0",
         "illuminate/database": "^10.0|^11.0|^12.0",
         "illuminate/support": "^10.0|^11.0|^12.0",
-        "nesbot/carbon": "^2.3|^3.0",
+        "nesbot/carbon": "^2.62|^3.0",
         "psr/http-message": "^2.0",
-        "ramsey/uuid": "^4.7"
+        "psr/log": "^3.0",
+        "ramsey/uuid": "^4.7",
+        "symfony/http-foundation": "^6.2|^7.0"
     },
     "require-dev": {
         "code-lts/doctum": "^5.5",
