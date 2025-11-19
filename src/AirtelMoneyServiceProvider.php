@@ -58,9 +58,7 @@ class AirtelMoneyServiceProvider extends ServiceProvider
                     'handler' => $handlerStack,
                     'base_uri' => $this->app['config']->get('airtel-money.base_uri'),
                     'headers' => [
-                        'Authorization' => 'Basic '.base64_encode('67b4pyJmfw3g4KDF:efcf410d-45f7-4a3c-9591-584ec55daaed'),
                         'Content-Type' => 'application/json',
-                        'X-Custom-Header' => ['value1', 'value2'],
                     ],
                 ]);
             });
